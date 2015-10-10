@@ -1,0 +1,17 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.botonf6 {
+	-fx-border-style: solid;
+	-fx-border-width: 2px;
+	-fx-border-radius: 10px; 
+	-fx-border-color: #cccccc;
+	-fx-font-size: 60pt;
+	/*-fx-padding: 1 1 1 1;*/
+	-fx-color: #cccccc;
+}
