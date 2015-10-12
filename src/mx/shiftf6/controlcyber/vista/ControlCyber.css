@@ -1,0 +1,50 @@
+.botonScreen1{
+	-fx-background-color: #cccccc;
+	-fx-background-radius: 10px;
+}
+
+.panel1Screen2{
+	-fx-background-color: #cccccc;
+	-fx-background-radius: 20px;
+}
+
+.texto1{
+	-fx-background-color: #ff3333;
+	-fx-background-radius: 4px;
+}
+
+.texto2{
+	-fx-background-color: #ff3333;
+	-fx-background-radius: 4px;
+}
+
+.ventana{
+	-fx-background-color: #cccccc;
+	-fx-background-radius: 20px;
+
+}
+
+.boton1Screen2{
+	-fx-background-color: #ff3333;
+	-fx-border-radius: 1.67px;
+}
+
+.panel2Screen2{
+	-fx-background-color: #ff3333;
+	-fx-background-radius: 7.88px;
+}
+
+.texto1Screen2{
+	-fx-background-color: #cccccc;
+	-fx-border-radius: 4px;
+}
+
+.texto2Screen2{
+	-fx-background-color: #cccccc;
+	-fx-border-radius: 4px;
+}
+
+.panel3Screen2{
+	-fx-background-radius: 2.21px;
+	-fx-background-color: #ff3333;
+}
