@@ -1,0 +1,16 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.tex1 {
+	-fx-border-style: solid;
+	-fx-background-color: #ff3333;
+	-fx-border-radius: 4px;
+	-fx-border-width: 2px; 
+	-fx-border-color: #ff3333;
+		/*-fx-padding: 1 1 1 1;*/
+}
