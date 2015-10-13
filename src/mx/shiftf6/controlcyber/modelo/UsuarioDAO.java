@@ -6,14 +6,14 @@ package mx.shiftf6.controlcyber.modelo;
  * @author BarBro
  */
 public class UsuarioDAO implements ObjetoDAO{
-    //Atributos de Clase
+    // Atributos de Clase
     private UsuarioModelo usuarioModelo;
     
     public UsuarioDAO(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for UsuarioDAO Class
-    //usuarioModelo
+    // Get and Set Methods for UsuarioDAO Class
+    // UsuarioModelo
     public UsuarioModelo getUsuarioModelo(){
         return this.usuarioModelo;
     }

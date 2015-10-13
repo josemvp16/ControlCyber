@@ -1,6 +1,7 @@
 
 package mx.shiftf6.controlcyber.modelo;
 
+import java.util.ArrayList;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
@@ -9,7 +10,7 @@ import javafx.beans.property.StringProperty;
  * @author BarBro
  */
 public class ClienteModelo {
-    //Atributos de Clase
+    // Atributos de Clase
     private IntegerProperty cveCliente;
     private StringProperty primerNombre;
     private StringProperty segundoNombre;
@@ -23,11 +24,11 @@ public class ClienteModelo {
     private StringProperty correoElectronico;
     
     public ClienteModelo(){
-        //Default Constructor
+        // Default Constructor
     }
     
-    //Get and Set Methods for ClienteModelo Class
-    //cveCliente
+    // Get and Set Methods for ClienteModelo Class
+    // CveCliente
     public int getCveCliente(){
         return cveCliente.get();
     }
@@ -37,7 +38,7 @@ public class ClienteModelo {
     public IntegerProperty cveClienteProperty(){
         return cveCliente;
     }
-    //primerNombre
+    // PrimerNombre
     public String getPrimerNombre(){
         return primerNombre.get();
     }
@@ -47,7 +48,7 @@ public class ClienteModelo {
     public StringProperty primerNombreProperty(){
         return primerNombre;
     }
-    //segundoNombre
+    // SegundoNombre
     public String getSegundoNombre(){
         return segundoNombre.get();
     }
@@ -57,7 +58,7 @@ public class ClienteModelo {
     public StringProperty segundoNombreProperty(){
         return segundoNombre;
     }
-    //primerApellido
+    // PrimerApellido
     public String getPrimerApellido(){
         return primerApellido.get();
     }
@@ -67,7 +68,7 @@ public class ClienteModelo {
     public StringProperty primerApellidoProperty(){
         return primerApellido;
     }
-    //segundoApellido
+    // SegundoApellido
     public String getSegundoApellido(){
         return segundoApellido.get();
     }
@@ -77,7 +78,7 @@ public class ClienteModelo {
     public StringProperty segundoApellidoProperty(){
         return segundoApellido;
     }
-    //sexo
+    // Sexo
     public String getSexo(){
         return sexo.get();
     }
@@ -87,7 +88,7 @@ public class ClienteModelo {
     public StringProperty sexoProperty(){
         return sexo;
     }
-    //colonia
+    // Colonia
     public String getColonia(){
         return colonia.get();
     }
@@ -97,7 +98,7 @@ public class ClienteModelo {
     public StringProperty coloniaProperty(){
         return colonia;
     }
-    //municipio
+    // Municipio
     public String getMunicipio(){
         return municipio.get();
     }
@@ -107,7 +108,7 @@ public class ClienteModelo {
     public StringProperty municipioProperty(){
         return municipio;
     }
-    //estado 
+    // Estado 
     public String getEstado(){
         return estado.get();
     }
@@ -117,7 +118,7 @@ public class ClienteModelo {
     public StringProperty estadoProperty(){
         return estado;
     }
-    //telefono
+    // Telefono
     public int getTelefono(){
         return telefono.get();
     }
@@ -127,7 +128,7 @@ public class ClienteModelo {
     public IntegerProperty telefonoProperty(){
         return telefono;
     }
-    //correoElectronico 
+    // CorreoElectronico 
     public String getCorreoElectronico(){
         return correoElectronico.get();
     }
@@ -138,15 +139,38 @@ public class ClienteModelo {
         return correoElectronico;
     }
     
-    //Other methods
-    //toString
+    // Other methods
+    // ToString
+    @Override
     public String toString(){
         String text = "Clave Cliente: " + this.getCveCliente() + "\n" +
-                
+                      "Primer Nombre: " + this.getPrimerNombre() + "\n" +
+                      "Segundo Nombre: " + this.getSegundoNombre() + "\n" +
+                      "Primer Apellido: " + this.getPrimerApellido() + "\n" +
+                      "Segundo Apellido: " + this.getSegundoApellido() + "\n" +
+                      "Sexo: " + this.getSexo() + "\n" +
+                      "Colonia: " + this.getColonia() + "\n" +
+                      "Municipio: " + this.getMunicipio() + "\n" +
+                      "Estado: " + this.getEstado() + "\n" +
+                      "Telefono: " + this.getTelefono() + "\n" +
+                      "Correo Electronico: " + this.getCorreoElectronico() + "\n";
         return text;
     }
-    //toArray
-    public String[] toArray(String[] textArray){
-        return textArray;
+    // ToArray
+    public ArrayList toArray(){
+        ArrayList<Object> arreglo = new ArrayList();
+        arreglo.add(this.getCveCliente());
+        arreglo.add(this.getPrimerNombre());
+        arreglo.add(this.getSegundoNombre());
+        arreglo.add(this.getPrimerApellido());
+        arreglo.add(this.getSegundoApellido());
+        arreglo.add(this.getSexo());
+        arreglo.add(this.getColonia());
+        arreglo.add(this.getMunicipio());
+        arreglo.add(this.getEstado());
+        arreglo.add(this.getTelefono());
+        arreglo.add(this.getCorreoElectronico());
+             
+        return arreglo;
     }
 }

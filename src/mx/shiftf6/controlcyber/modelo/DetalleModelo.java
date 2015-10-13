@@ -2,6 +2,7 @@
 package mx.shiftf6.controlcyber.modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 
@@ -9,17 +10,17 @@ import javafx.beans.property.ObjectProperty;
  *
  * @author BarBro
  */
-class DetalleModelo {
-    //Atributos de Clase
+public class DetalleModelo {
+    // Atributos de Clase
     private IntegerProperty detalleEvento;
     private ObjectProperty<LocalDate> entrada;
     private ObjectProperty<LocalDate> salida;
     
     public DetalleModelo(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for DetalleModelo Class
-    //detalleEvento
+    // Get and Set Methods for DetalleModelo Class
+    // DetalleEvento
     public int getsDetalleEvento(){
         return detalleEvento.get();
     }
@@ -29,7 +30,7 @@ class DetalleModelo {
     public IntegerProperty detalleEventoProperty(){
         return detalleEvento;
     }
-    //entrada
+    // Entrada
     public LocalDate getEntrada(){
         return entrada.get();
     }
@@ -39,7 +40,7 @@ class DetalleModelo {
     public ObjectProperty<LocalDate> entradaProperty(){
         return entrada;
     } 
-    //salida
+    // Salida
     public LocalDate getSalida(){
         return salida.get();
     }
@@ -50,14 +51,24 @@ class DetalleModelo {
         return salida;
     } 
     
-    //Other methods
-    //toString
-    public String toString(String text){
+    // Other Methods
+    // ToString
+    @Override
+    public String toString(){
+        String text = "Detalle Evento: " + this.getsDetalleEvento() + "\n" +
+                      "Entrada: " + this.getEntrada() + "\n" +
+                      "Salida: " + this.getSalida() + "\n";
+        
         return text;
     }
-    //toArray
-    public String[] toArray(String[] textArray){
-        return textArray;
+    // ToArray
+    public ArrayList toArray(){
+        ArrayList<Object> arreglo = new ArrayList();
+        arreglo.add(this.getsDetalleEvento());
+        arreglo.add(this.getEntrada());
+        arreglo.add(this.getSalida());
+        
+        return arreglo;
     }
     
     

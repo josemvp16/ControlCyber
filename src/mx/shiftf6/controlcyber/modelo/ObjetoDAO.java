@@ -7,21 +7,21 @@ package mx.shiftf6.controlcyber.modelo;
  */
 public interface ObjetoDAO {
     // Interface Methods
-    //leer
     /**
      * Este método obtiene todos los objetos con el campo y valor
      * @param campo
      * @param valor
      * @return 
      */
+    // Leer
     public Object[] leerUno(String campo, String valor);
     // Leer todos
     public Object[] leerTodos();
-    //agregar
+    // Agregar
     public void agregar(Object obj);
-    //eliminar
+    // Eliminar
     public void eliminar(Object obj);
-    //actualizar
+    // Actualizar
     public void actualizar(Object obj);
     
 }

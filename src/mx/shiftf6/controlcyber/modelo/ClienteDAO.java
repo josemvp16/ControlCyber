@@ -6,38 +6,45 @@ package mx.shiftf6.controlcyber.modelo;
  * @author BarBro
  */
 public class ClienteDAO implements ObjetoDAO{
-    //Atributos de Clase
+    // Atributos de Clase
     private ClienteModelo clienteModelo;
     
     public ClienteDAO(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for ClienteDAO Class
-    //clienteModelo
-    public void getClienteModelo(){
-        clienteModelo.getClass();
+    // Get and Set Methods for ClienteDAO Class
+    // ClienteModelo
+    public ClienteModelo getClienteModelo(){
+        return this.clienteModelo;
     }
     public void setClienteModelo(ClienteModelo clienteModelo){
-        this.clienteModelo.equals(clienteModelo);
+        this.clienteModelo = clienteModelo;
     }
 
     @Override
-    public void leer() {
+    public Object[] leerUno(String campo, String valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void agregar() {
+    public Object[] leerTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar() {
+    public void agregar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar() {
+    public void eliminar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void actualizar(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

@@ -6,38 +6,45 @@ package mx.shiftf6.controlcyber.modelo;
  * @author BarBro
  */
 public class BitacoraDAO implements ObjetoDAO{
-    //Atributos de Clase
+    // Atributos de Clase
     private BitacoraModelo bitacoraModelo;
     
     public BitacoraDAO(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for BitacoraDAO Class
-    //bitacoraModelo
-    public void getBitacoraModelo(){
-        bitacoraModelo.getClass();
+    // Get and Set Methods for BitacoraDAO Class
+    // DitacoraModelo
+    public BitacoraModelo getBitacoraModelo(){
+        return this.bitacoraModelo;
     }
     public void setBitacoraModelo(BitacoraModelo bitacoraModelo){
-        this.bitacoraModelo.equals(bitacoraModelo);
+        this.bitacoraModelo = bitacoraModelo;
     }
 
     @Override
-    public void leer() {
+    public Object[] leerUno(String campo, String valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void agregar() {
+    public Object[] leerTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar() {
+    public void agregar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar() {
+    public void eliminar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void actualizar(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

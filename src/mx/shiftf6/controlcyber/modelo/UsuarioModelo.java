@@ -2,6 +2,7 @@
 package mx.shiftf6.controlcyber.modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
@@ -11,7 +12,7 @@ import javafx.beans.property.StringProperty;
  * @author BarBro
  */
 public class UsuarioModelo {
-    //Atributos de Clase
+    // Atributos de Clase
     private StringProperty nombreUsuario;
     private ObjectProperty<LocalDate> fechaRegistro;
     private StringProperty contrasena;
@@ -19,10 +20,10 @@ public class UsuarioModelo {
     private ClienteModelo clienteModelo;
     
     public UsuarioModelo(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for UsuarioModelo Class
-    //nombreUsuario
+    // Get and Set Methods for UsuarioModelo Class
+    // NombreUsuario
     public String getNombreUsuario(){
         return nombreUsuario.get();
     }
@@ -32,7 +33,7 @@ public class UsuarioModelo {
     public StringProperty nombreUsuarioProperty(){
         return nombreUsuario;
     }
-    //fechaRegistro
+    // FechaRegistro
     public LocalDate getFechaRegistro(){
         return fechaRegistro.get();
     }
@@ -42,7 +43,7 @@ public class UsuarioModelo {
     public ObjectProperty<LocalDate> fechaRegistroProperty(){
         return fechaRegistro;
     } 
-    //contrasena
+    // Contrasena
     public String getContrasena(){
         return contrasena.get();
     }
@@ -52,7 +53,7 @@ public class UsuarioModelo {
     public StringProperty contrasenaProperty(){
         return contrasena;
     }
-    //status
+    // Status
     public int getsSatus(){
         return status.get();
     }
@@ -62,21 +63,34 @@ public class UsuarioModelo {
     public IntegerProperty statusProperty(){
         return status;
     }
-    //clienteModelo
-    public void getClienteModelo(){
-        clienteModelo.getClass();
+    // ClienteModelo
+    public ClienteModelo getClienteModelo(){
+        return this.clienteModelo;
     }
     public void setClienteModelo(ClienteModelo clienteModelo){
-        this.clienteModelo.equals(clienteModelo);
+        this.clienteModelo = clienteModelo;
     }
     
-    //Other methods
-    //toString
-    public String toString(String text){
+    // ToString
+    @Override
+    public String toString(){
+        String text = "Nombre Usuario: " + this.getNombreUsuario() + "\n" +
+                      "Fecha Registro: " + this.getFechaRegistro() + "\n" +
+                      "Contraseña: " + this.getContrasena() + "\n" +
+                      "Status: " + this.getsSatus() + "\n" +
+                      "Cliente: " + this.getClienteModelo() + "\n";
+        
         return text;
     }
-    //toArray
-    public String[] toArray(String[] textArray){
-        return textArray;
+    // ToArray
+    public ArrayList toArray(){
+        ArrayList<Object> arreglo = new ArrayList();
+        arreglo.add(this.getNombreUsuario());
+        arreglo.add(this.getFechaRegistro());
+        arreglo.add(this.getContrasena());
+        arreglo.add(this.getsSatus());
+        arreglo.add(this.getClienteModelo());
+        
+        return arreglo;
     }
 }

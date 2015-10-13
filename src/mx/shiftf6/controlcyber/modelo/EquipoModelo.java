@@ -1,6 +1,7 @@
 
 package mx.shiftf6.controlcyber.modelo;
 
+import java.util.ArrayList;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
@@ -8,16 +9,16 @@ import javafx.beans.property.StringProperty;
  *
  * @author BarBro
  */
-class EquipoModelo {
-    //Atributos de Clase
+public class EquipoModelo {
+    // Atributos de Clase
     private IntegerProperty cveEquipo;
     private StringProperty nombreEquipo;
     
     public EquipoModelo(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for EquipoModelo Class
-    //cveEquipo
+    // Get and Set Methods for EquipoModelo Class
+    // CveEquipo
     public int getsCveEquipo(){
         return cveEquipo.get();
     }
@@ -27,7 +28,7 @@ class EquipoModelo {
     public IntegerProperty cveEquipoProperty(){
         return cveEquipo;
     }
-    //nombreEquipo
+    // NombreEquipo
     public String getNombreEquipo(){
         return nombreEquipo.get();
     }
@@ -38,14 +39,22 @@ class EquipoModelo {
         return nombreEquipo;
     }
     
-    //Other methods
-    //toString
-    public String toString(String text){
+    // Other Methods
+    // ToString
+    @Override
+    public String toString(){
+        String text = "Clave Equipo: " + this.getsCveEquipo() + "\n" +
+                      "Nombre Equipo: " + this.getNombreEquipo() + "\n";
+        
         return text;
     }
-    //toArray
-    public String[] toArray(String[] textArray){
-        return textArray;
+    // ToArray
+    public ArrayList toArray(){
+        ArrayList<Object> arreglo = new ArrayList();
+        arreglo.add(this.getsCveEquipo());
+        arreglo.add(this.getNombreEquipo());
+        
+        return arreglo;
     }
     
 }

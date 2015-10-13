@@ -2,6 +2,7 @@
 package mx.shiftf6.controlcyber.modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 
@@ -10,7 +11,7 @@ import javafx.beans.property.ObjectProperty;
  * @author BarBro
  */
 public class BitacoraModelo {
-    //Atributos de Clase
+    // Atributos de Clase
     private IntegerProperty cveBitacora;
     private UsuarioModelo usuarioModelo;
     private ObjectProperty<LocalDate> fecha;
@@ -18,10 +19,10 @@ public class BitacoraModelo {
     private DetalleModelo detalleModelo;
         
     public BitacoraModelo(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for BitacoraModelo Class
-    //cveCliente
+    // Get and Set Methods for BitacoraModelo Class
+    // CveCliente
     public int getCveBitacora(){
         return cveBitacora.get();
     }
@@ -31,14 +32,14 @@ public class BitacoraModelo {
     public IntegerProperty cveBitacoraProperty(){
         return cveBitacora;
     }
-    //usuarioModelo
-    public void getUsuarioModelo(){
-        usuarioModelo.getClass();
+    // UsuarioModelo
+    public UsuarioModelo getUsuarioModelo(){
+        return this.usuarioModelo;
     }
     public void setUsuarioModelo(UsuarioModelo usuarioModelo){
-        this.usuarioModelo.equals(usuarioModelo);
+        this.usuarioModelo = usuarioModelo;
     }
-    //fecha
+    // Fecha
     public LocalDate getFecha(){
         return fecha.get();
     }
@@ -48,28 +49,42 @@ public class BitacoraModelo {
     public ObjectProperty<LocalDate> fechaProperty(){
         return fecha;
     } 
-    //equipoModelo
-    public void getEquipoModelo(){
-        equipoModelo.getClass();
+    // EquipoModelo
+    public EquipoModelo getEquipoModelo(){
+        return this.equipoModelo;
     }
     public void setEquipoModelo(EquipoModelo equipoModelo){
-        this.equipoModelo.equals(equipoModelo);
+        this.equipoModelo = equipoModelo;
     }
-    //detalleModelo
-    public void getDetalleModelo(){
-        detalleModelo.getClass();
+    // DetalleModelo
+    public DetalleModelo getDetalleModelo(){
+        return this.detalleModelo;
     }
     public void setDetalleModelo(DetalleModelo detalleModelo){
-        this.detalleModelo.equals(detalleModelo);
+        this.detalleModelo = detalleModelo;
     }
     
-    //Other methods
-    //toString
-    public String toString(String text){
+    // Other methods
+    // ToString
+    @Override
+    public String toString(){
+        String text = "Clave Bitacora: " + this.getCveBitacora() + "\n" +
+                      "Usuario: " + this.getUsuarioModelo() + "\n" +
+                      "Fecha: " + this.getFecha() + "\n" +
+                      "Equipo: " + this.getEquipoModelo() + "\n" +
+                      "Detalle: " + this.getDetalleModelo() + "\n";
+        
         return text;
     }
-    //toArray
-    public String[] toArray(String[] textArray){
-        return textArray;
+    // ToArray
+    public ArrayList toArray(){
+        ArrayList<Object> arreglo = new ArrayList();
+        arreglo.add(this.getCveBitacora());
+        arreglo.add(this.getUsuarioModelo());
+        arreglo.add(this.getFecha());
+        arreglo.add(this.getEquipoModelo());
+        arreglo.add(this.getDetalleModelo());
+        
+        return arreglo;
     }
 }

@@ -6,38 +6,45 @@ package mx.shiftf6.controlcyber.modelo;
  * @author BarBro
  */
 public class EquipoDAO implements ObjetoDAO{
-    //Atributos de Clase
+    // Atributos de Clase
     private EquipoModelo equipoModelo;
     
     public EquipoDAO(){
-        //Default Constructor
+        // Default Constructor
     }
-    //Get and Set Methods for EquipoDAO Class
-    //equipoModelo
-    public void getEquipoModelo(){
-        equipoModelo.getClass();
+    // Get and Set Methods for EquipoDAO Class
+    // EquipoModelo
+    public EquipoModelo getEquipoModelo(){
+        return this.equipoModelo;
     }
     public void setEquipoModelo(EquipoModelo equipoModelo){
-        this.equipoModelo.equals(equipoModelo);
+        this.equipoModelo = equipoModelo;
     }
 
     @Override
-    public void leer() {
+    public Object[] leerUno(String campo, String valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void agregar() {
+    public Object[] leerTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar() {
+    public void agregar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void eliminar(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void actualizar(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
-    @Override
-    public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
