@@ -10,7 +10,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author BarBro
  */
-class UsuarioModelo {
+public class UsuarioModelo {
     //Atributos de Clase
     private StringProperty nombreUsuario;
     private ObjectProperty<LocalDate> fechaRegistro;

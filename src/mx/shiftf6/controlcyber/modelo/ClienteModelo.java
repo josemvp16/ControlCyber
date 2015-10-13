@@ -140,7 +140,9 @@ public class ClienteModelo {
     
     //Other methods
     //toString
-    public String toString(String text){
+    public String toString(){
+        String text = "Clave Cliente: " + this.getCveCliente() + "\n" +
+                
         return text;
     }
     //toArray

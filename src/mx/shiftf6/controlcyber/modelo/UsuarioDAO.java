@@ -14,30 +14,37 @@ public class UsuarioDAO implements ObjetoDAO{
     }
     //Get and Set Methods for UsuarioDAO Class
     //usuarioModelo
-    public void getUsuarioModelo(){
-        usuarioModelo.getClass();
+    public UsuarioModelo getUsuarioModelo(){
+        return this.usuarioModelo;
     }
+    
     public void setUsuarioModelo(UsuarioModelo usuarioModelo){
-        this.usuarioModelo.equals(usuarioModelo);
+        this.usuarioModelo = usuarioModelo;
     }
 
     @Override
-    public void leer() {
+    public Object[] leerUno(String campo, String valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void agregar() {
+    public Object[] leerTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar() {
+    public void agregar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar() {
+    public void eliminar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void actualizar(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
