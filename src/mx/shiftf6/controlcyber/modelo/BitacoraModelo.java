@@ -20,7 +20,7 @@ public class BitacoraModelo {
     public BitacoraModelo(){
         //Default Constructor
     }
-    //Get and Set Methods for ClienteModelo Class
+    //Get and Set Methods for BitacoraModelo Class
     //cveCliente
     public int getCveBitacora(){
         return cveBitacora.get();
@@ -31,5 +31,45 @@ public class BitacoraModelo {
     public IntegerProperty cveBitacoraProperty(){
         return cveBitacora;
     }
+    //usuarioModelo
+    public void getUsuarioModelo(){
+        usuarioModelo.getClass();
+    }
+    public void setUsuarioModelo(UsuarioModelo usuarioModelo){
+        this.usuarioModelo.equals(usuarioModelo);
+    }
+    //fecha
+    public LocalDate getFecha(){
+        return fecha.get();
+    }
+    public void setFecha(LocalDate fecha){
+        this.fecha.set(fecha);
+    }
+    public ObjectProperty<LocalDate> fechaProperty(){
+        return fecha;
+    } 
+    //equipoModelo
+    public void getEquipoModelo(){
+        equipoModelo.getClass();
+    }
+    public void setEquipoModelo(EquipoModelo equipoModelo){
+        this.equipoModelo.equals(equipoModelo);
+    }
+    //detalleModelo
+    public void getDetalleModelo(){
+        detalleModelo.getClass();
+    }
+    public void setDetalleModelo(DetalleModelo detalleModelo){
+        this.detalleModelo.equals(detalleModelo);
+    }
     
+    //Other methods
+    //toString
+    public String toString(String text){
+        return text;
+    }
+    //toArray
+    public String[] toArray(String[] textArray){
+        return textArray;
+    }
 }

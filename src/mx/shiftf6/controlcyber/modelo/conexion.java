@@ -14,6 +14,5 @@ public class conexion {
         catch (ClassNotFoundException exc){
                 exc.printStackTrace();
                 }
-    
     }
 }
