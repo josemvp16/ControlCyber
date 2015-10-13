@@ -8,7 +8,7 @@ public class conexion {
     public conexion() throws SQLException{
         try {
         class.forName("com.mysql.jdbc.Driver");
-        Connection co=DriverManager.getConnection("jdbc:mysql://localhost/Hola?user=root&password=");
+        Connection co=DriverManager.getConnection("jdbc:mysql://192.168.1.76/Hola?user=adminciber&password=simons83");
         Statement stm=co.createStatement();
         }
         catch (ClassNotFoundException exc){
