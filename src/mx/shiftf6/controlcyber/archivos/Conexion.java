@@ -27,7 +27,7 @@ public class Conexion {
     public Connection conectarMySQL(){
         try{
             Class.forName("java.sql.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.79/" + nombreBD, usuarioBD, contrasenaBD);
+            conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.79/controlciber, adminciber, simons83");
             System.out.println("Conexion exitosa");
             return conexion;
         }catch(ClassNotFoundException | SQLException e){
