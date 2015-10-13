@@ -1,0 +1,9 @@
+#Conection info for database connections
+#Database Name:controlciber
+nombre_de_base_de_datos
+#Host:192.168.1.79
+host_donde_se_encuentra_base_de_datos
+#User:adminciber
+usuario_de_base_de_datos
+#Password:simons83
+contraseña_de_usuario_
