@@ -10,14 +10,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Screen1.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.shiftf6.controlcyber.Screen1Controller">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.shiftf6.controlcyber.Screen1Controller">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/fondos/FondoInterfaz-01.png" />
          </image>
       </ImageView>
-      <Button alignment="CENTER" layoutX="672.0" layoutY="401.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="botonScreen1" stylesheets="@ControlCyber.css" text="F6" textAlignment="CENTER" textFill="#ff3333" wrapText="true">
+      <Button alignment="CENTER" layoutX="672.0" layoutY="401.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" styleClass="botonScreen1" stylesheets="@estilos/ControlCyber.css" text="F6" textAlignment="CENTER" textFill="#ff3333" wrapText="true">
          <font>
             <Font name="Computerfont Regular" size="40.0" />
          </font>
