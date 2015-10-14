@@ -56,3 +56,8 @@
 	-fx-background-radius: 2.21px;
 	-fx-background-color: #ff3333;
 }
+
+.anchorPanePantalla1{
+	-fx-background-image: url("../../../../../../recursos/imagenes/fondos/Background-01.jpg");
+	-fx-background-size: cover;
+}
