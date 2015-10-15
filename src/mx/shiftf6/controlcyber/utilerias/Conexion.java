@@ -1,5 +1,5 @@
 
-package Main;
+package mx.shiftf6.controlcyber.utilerias;
 
 import java.awt.Toolkit;
 import java.sql.Connection;
