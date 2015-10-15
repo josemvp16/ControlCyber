@@ -11,6 +11,14 @@
 	-fx-background-radius: 10px;
 }
 
+.botonScreen1:hover {
+	-fx-background-color: #000000;
+}
+
+.botonScreen1:pressed {
+	-fx-background-color: #888888;
+}
+
 .panel1Screen2{
 	-fx-background-color: #cccccc;
 	-fx-background-radius: 20px;
@@ -58,6 +66,6 @@
 }
 
 .anchorPanePantalla1{
-	-fx-background-image: url("../../../../../../recursos/imagenes/fondos/Background-01.jpg");
+	-fx-background-image: url("../../imagenes/fondos/FondoInterfaz-01.png");
 	-fx-background-size: cover;
 }
