@@ -61,7 +61,7 @@ public class UsuarioModelo {
         return contrasena;
     }
     // Status
-    public int getsSatus(){
+    public int getStatus(){
         return status.get();
     }
     public void setStatus(int status){
@@ -84,7 +84,7 @@ public class UsuarioModelo {
         String text = "Nombre Usuario: " + this.getNombreUsuario() + "\n" +
                       "Fecha Registro: " + this.getFechaRegistro() + "\n" +
                       "Contraseña: " + this.getContrasena() + "\n" +
-                      "Status: " + this.getsSatus() + "\n" +
+                      "Status: " + this.getStatus() + "\n" +
                       "Cliente: " + this.getClienteModelo() + "\n";
         
         return text;
@@ -95,7 +95,7 @@ public class UsuarioModelo {
         arreglo.add(this.getNombreUsuario());
         arreglo.add(this.getFechaRegistro());
         arreglo.add(this.getContrasena());
-        arreglo.add(this.getsSatus());
+        arreglo.add(this.getStatus());
         arreglo.add(this.getClienteModelo());
         
         return arreglo;
