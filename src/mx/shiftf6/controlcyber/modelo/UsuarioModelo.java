@@ -20,7 +20,14 @@ public class UsuarioModelo {
     private ClienteModelo clienteModelo;
     
     public UsuarioModelo(){
-        // Default Constructor
+        this.nombreUsuario = null;
+        this.contrasena = null;
+        this.fechaRegistro = null;
+        this.status = null;
+        this.clienteModelo = null;
+    }
+    public UsuarioModelo(StringProperty usuario, StringProperty contrasena) {
+        
     }
     // Get and Set Methods for UsuarioModelo Class
     // NombreUsuario
