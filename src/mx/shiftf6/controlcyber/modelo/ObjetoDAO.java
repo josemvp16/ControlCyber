@@ -24,4 +24,8 @@ public interface ObjetoDAO {
     // Actualizar
     public void actualizar(Object obj);
     
+    // LogIn Busqueda de Usuario y Contraseña
+    public String buscar(Object obj);
+    
+    
 }
