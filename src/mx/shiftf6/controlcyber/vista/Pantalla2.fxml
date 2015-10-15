@@ -8,34 +8,29 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.shiftf6.controlcyber.vista.Pantalla2Control">
    <children>
-      <ImageView fitHeight="900.0" fitWidth="1440.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagenes/fondos/FondoInterfaz-01.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="516.0" layoutY="299.0">
-         <children>
-            <Pane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <Pane maxHeight="300.0" maxWidth="400.0" prefHeight="300.0" prefWidth="400.0" styleClass="panel1Screen2" stylesheets="@estilos/ControlCyber.css" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="300.0" prefWidth="400.0" styleClass="panel1Screen2" stylesheets="@ControlCyber.css" AnchorPane.bottomAnchor="277.0" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="530.0" AnchorPane.topAnchor="323.0">
+                  <VBox alignment="CENTER" layoutX="100.0" layoutY="104.0" spacing="5.0">
                      <children>
-                        <TextField alignment="CENTER" layoutX="113.0" layoutY="110.0" prefHeight="24.0" prefWidth="200.0" promptText="USUARIO" styleClass="texto1" stylesheets="@ControlCyber.css">
+                        <TextField fx:id="textoUsuario" alignment="CENTER" prefHeight="24.0" prefWidth="200.0" promptText="USUARIO" styleClass="texto1" stylesheets="@estilos/ControlCyber.css">
                            <font>
                               <Font name="ZagRegular" size="20.0" />
                            </font>
                         </TextField>
-                        <PasswordField alignment="CENTER" layoutX="113.0" layoutY="156.0" prefHeight="24.0" prefWidth="200.0" promptText="°°°°°°°" styleClass="texto2" stylesheets="@ControlCyber.css">
+                        <PasswordField fx:id="passwordContrasena" alignment="CENTER" layoutX="113.0" layoutY="156.0" prefHeight="24.0" prefWidth="200.0" promptText="CONTRASEÑA" styleClass="texto1" stylesheets="@estilos/ControlCyber.css">
                            <font>
                               <Font name="ZagRegular" size="20.0" />
                            </font>
                         </PasswordField>
                      </children>
-                  </Pane>
+                  </VBox>
                </children>
             </Pane>
-         </children>
-      </Pane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

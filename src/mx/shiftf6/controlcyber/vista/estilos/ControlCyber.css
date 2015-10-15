@@ -12,11 +12,11 @@
 }
 
 .botonScreen1:hover {
-	-fx-background-color: #000000;
+	-fx-background-color: #999999;
 }
 
 .botonScreen1:pressed {
-	-fx-background-color: #888888;
+	-fx-background-color: #666666;
 }
 
 .panel1Screen2{
@@ -27,6 +27,7 @@
 .texto1{
 	-fx-background-color: #ff3333;
 	-fx-background-radius: 4px;
+	-fx-text-fill: white;
 }
 
 .texto2{
@@ -37,7 +38,6 @@
 .ventana{
 	-fx-background-color: #cccccc;
 	-fx-background-radius: 20px;
-
 }
 
 .boton1Screen2{
