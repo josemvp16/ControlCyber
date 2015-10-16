@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class Conexion {
+public class ConnectionDB {
     
     //VARIABLES
     private Connection conexion;
@@ -17,7 +17,7 @@ public class Conexion {
     private final String usuarioBD;
     private final String contrasenaBD;
     
-    public Conexion(String nBD, String hBD, String uBD, String cBD) {
+    public ConnectionDB(String nBD, String hBD, String uBD, String cBD) {
         this.nombreBD = nBD;
         this.hostBD = hBD;
         this.usuarioBD = uBD;
@@ -46,5 +46,9 @@ public class Conexion {
             JOptionPane.showMessageDialog(null,"No se pudo realizar la conexión a la base de datos [" + nombreBD + "] \n Error: " + sqle.getMessage(), "Conexión a MySQL", JOptionPane.ERROR_MESSAGE);
         }//END TRY-CATCH
     }//END TERMINAR CONEXION
+
+    Connection conectarMYSQL() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }//END CLASS
