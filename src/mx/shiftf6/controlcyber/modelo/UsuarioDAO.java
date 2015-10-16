@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mx.shiftf6.controlcyber.utilerias.Conexion;
 
 /**
  *
@@ -16,7 +15,6 @@ import mx.shiftf6.controlcyber.utilerias.Conexion;
 public class UsuarioDAO implements ObjetoDAO{
     // Atributos de Clase
     private UsuarioModelo usuarioModelo;
-    private final Conexion conexion = null;
     private Connection con;
     
     
@@ -98,10 +96,20 @@ public class UsuarioDAO implements ObjetoDAO{
                     if(res3 == null){
                         return "Usuario ya Inicio Sesion";
                     }else{
+                        // Close PreparedStatements
+                        prepUsuario.close();
+                        prepContrasena.close();
+                        prepStatus.close();
+                        // Close ResultSets
+                        res.close();
+                        res2.close();
+                        res3.close();
+                        
                         return "Bienvenido";
                     }
                 }
-            }  
+            }
+             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
