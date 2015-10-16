@@ -29,7 +29,12 @@ public class LeerArchivo {
             this.passwordDB = content.get(8);
         }catch(IOException | URISyntaxException ioe){
             Toolkit.getDefaultToolkit().beep();
-            JOptionPane.showMessageDialog(null,"Error: " + ioe.getMessage(), "Datos de Conexion", JOptionPane.ERROR_MESSAGE);
+            //Notificacion notificacion = new Notificacion(AlertTipe.CONFIRMATION);
+            //notificacion.setTitulo("Titulo");
+           // notificacion.setCabecera("Cabecera");
+           // notificacion.setMensaje("Mensaje");
+            //notificacion.getAlerta().showandwait();
+            
         }
     }
     

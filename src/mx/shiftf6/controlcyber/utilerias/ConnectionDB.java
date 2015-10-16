@@ -27,7 +27,7 @@ public class ConnectionDB {
     public Connection conectarMySQL(){
         try{
             Class.forName("java.sql.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.79/controlciber, adminciber, simons83");
+            conexion = DriverManager.getConnection("jdbc:mysql://" + hostBD + "/" + nombreBD, usuarioBD, contrasenaBD);
             System.out.println("Conexion exitosa");
             return conexion;
         }catch(ClassNotFoundException | SQLException e){
@@ -46,9 +46,4 @@ public class ConnectionDB {
             JOptionPane.showMessageDialog(null,"No se pudo realizar la conexión a la base de datos [" + nombreBD + "] \n Error: " + sqle.getMessage(), "Conexión a MySQL", JOptionPane.ERROR_MESSAGE);
         }//END TRY-CATCH
     }//END TERMINAR CONEXION
-
-    Connection conectarMYSQL() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }//END CLASS
