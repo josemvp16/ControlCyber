@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class Conexion {
+public class ConnectionDB {
     
     //VARIABLES
     private Connection conexion;
@@ -17,7 +17,7 @@ public class Conexion {
     private final String usuarioBD;
     private final String contrasenaBD;
     
-    public Conexion(String nBD, String hBD, String uBD, String cBD) {
+    public ConnectionDB(String nBD, String hBD, String uBD, String cBD) {
         this.nombreBD = nBD;
         this.hostBD = hBD;
         this.usuarioBD = uBD;
@@ -27,7 +27,7 @@ public class Conexion {
     public Connection conectarMySQL(){
         try{
             Class.forName("java.sql.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://192.168.1.79/controlciber, adminciber, simons83");
+            conexion = DriverManager.getConnection("jdbc:mysql://" + hostBD + "/" + nombreBD, usuarioBD, contrasenaBD);
             System.out.println("Conexion exitosa");
             return conexion;
         }catch(ClassNotFoundException | SQLException e){
@@ -46,5 +46,4 @@ public class Conexion {
             JOptionPane.showMessageDialog(null,"No se pudo realizar la conexión a la base de datos [" + nombreBD + "] \n Error: " + sqle.getMessage(), "Conexión a MySQL", JOptionPane.ERROR_MESSAGE);
         }//END TRY-CATCH
     }//END TERMINAR CONEXION
-    
 }//END CLASS

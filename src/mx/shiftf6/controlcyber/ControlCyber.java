@@ -2,6 +2,7 @@
 package mx.shiftf6.controlcyber;
 
 import java.io.IOException;
+import java.sql.Connection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +13,8 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
+import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 import mx.shiftf6.controlcyber.vista.Pantalla1Control;
 import mx.shiftf6.controlcyber.vista.Pantalla2Control;
 
@@ -26,11 +29,17 @@ public class ControlCyber extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        
         escenarioPrincipal = primaryStage;
         escenarioPrincipal.setTitle("Control de Cyber | Hecho con amor por Shift-F6");
         
         // Configuramos icono de aplicacion
         this.escenarioPrincipal.getIcons().add(new Image("file:recursos/imagenes/iconos/IconPNG.png"));
+        
+        LeerArchivo leer = new LeerArchivo("/mx/shiftf6/controlcyber/archivos/ConnectionData");
+        ConnectionDB conectar = new ConnectionDB(leer.getNameDB(), leer.getHostDB(), leer.getUserDB(), leer.getPasswordDB());
+        Connection conexion = conectar.conectarMySQL();
+        conectar.terminarConexion();
         
         iniciarLayoutRaiz();
         
