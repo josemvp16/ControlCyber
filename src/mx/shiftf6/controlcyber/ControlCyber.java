@@ -36,7 +36,7 @@ public class ControlCyber extends Application {
         // Configuramos icono de aplicacion
         this.escenarioPrincipal.getIcons().add(new Image("file:recursos/imagenes/iconos/IconPNG.png"));
         
-        LeerArchivo leer = new LeerArchivo("/mx/shiftf6/controlcyber/archivos/ConnectionData");
+        LeerArchivo leer = new LeerArchivo("/mx/shiftf6/controlcyber/archivos/ConnectionDataIsra");
         ConnectionDB conectar = new ConnectionDB(leer.getNameDB(), leer.getHostDB(), leer.getUserDB(), leer.getPasswordDB());
         Connection conexion = conectar.conectarMySQL();
         conectar.terminarConexion();

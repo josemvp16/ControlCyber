@@ -1,7 +1,5 @@
 
 package mx.shiftf6.controlcyber.utilerias;
-import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
-import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 import java.sql.Connection;
 
 
@@ -12,8 +10,6 @@ public class testConexion {
         ConnectionDB conectar = new ConnectionDB(leer.getNameDB(), leer.getHostDB(), leer.getUserDB(), leer.getPasswordDB());
         Connection conexion = conectar.conectarMySQL();
         conectar.terminarConexion();
-        
-    
     }
     
     

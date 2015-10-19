@@ -91,7 +91,7 @@ public class UsuarioModelo {
     }
     // ToArray
     public ArrayList toArray(){
-        ArrayList<Object> arreglo = new ArrayList();
+        ArrayList<Object> arreglo = new ArrayList<>();
         arreglo.add(this.getNombreUsuario());
         arreglo.add(this.getFechaRegistro());
         arreglo.add(this.getContrasena());

@@ -158,7 +158,7 @@ public class ClienteModelo {
     }
     // ToArray
     public ArrayList toArray(){
-        ArrayList<Object> arreglo = new ArrayList();
+        ArrayList<Object> arreglo = new ArrayList<>();
         arreglo.add(this.getCveCliente());
         arreglo.add(this.getPrimerNombre());
         arreglo.add(this.getSegundoNombre());

@@ -63,7 +63,7 @@ public class DetalleModelo {
     }
     // ToArray
     public ArrayList toArray(){
-        ArrayList<Object> arreglo = new ArrayList();
+        ArrayList<Object> arreglo = new ArrayList<>();
         arreglo.add(this.getsDetalleEvento());
         arreglo.add(this.getEntrada());
         arreglo.add(this.getSalida());

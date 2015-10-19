@@ -78,7 +78,7 @@ public class BitacoraModelo {
     }
     // ToArray
     public ArrayList toArray(){
-        ArrayList<Object> arreglo = new ArrayList();
+        ArrayList<Object> arreglo = new ArrayList<>();
         arreglo.add(this.getCveBitacora());
         arreglo.add(this.getUsuarioModelo());
         arreglo.add(this.getFecha());
