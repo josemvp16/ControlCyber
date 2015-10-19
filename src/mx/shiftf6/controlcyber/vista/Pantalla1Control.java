@@ -2,8 +2,11 @@
 package mx.shiftf6.controlcyber.vista;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import mx.shiftf6.controlcyber.ControlCyber;
+import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
 /**
  *
@@ -40,6 +43,15 @@ public class Pantalla1Control {
     @FXML
     private void mostrarPantallaSesion() {
         this.controlCyber.mostrarPantallaDos();
+    }
+    
+    @FXML
+    private void probarMensaje() {
+        Notificacion alerta = new Notificacion(AlertType.CONFIRMATION);
+        alerta.setTitulo("Hola");
+        alerta.setCabecera("Cabecera Hola");
+        alerta.setMensaje("Mensaje hola");
+        alerta.getAlerta().showAndWait();
     }
     
 }
