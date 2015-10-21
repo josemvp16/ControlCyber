@@ -3,13 +3,16 @@ package mx.shiftf6.controlcyber.vista;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import mx.shiftf6.controlcyber.ControlCyber;
+import mx.shiftf6.controlcyber.modelo.UsuarioDAO;
 import mx.shiftf6.controlcyber.modelo.UsuarioModelo;
+import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
 /**
  *
@@ -26,6 +29,7 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
     
     private ControlCyber controlCyber;
     private UsuarioModelo usuarioModelo;
+    private UsuarioDAO usuarioDAO;
     
     @FXML
     private void initialize() {
@@ -41,29 +45,66 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
         this.passwordContrasena.setOnKeyPressed(this);
     }
     
-    public void setUsuario() {
-        this.usuarioModelo = new UsuarioModelo();
-        this.usuarioModelo.setNombreUsuario(this.textoUsuario.getText());
-        this.usuarioModelo.setContrasena(this.passwordContrasena.getText());
+    /**
+     * Valida las credenciales de usuario para permitir acceso
+     */
+    public void inisiarSesion() {
+        usuarioModelo = new UsuarioModelo(this.textoUsuario.getText(), this.passwordContrasena.getText());
+        usuarioDAO = new UsuarioDAO();
+        Notificacion notificacion = new Notificacion("Inicio de Sesión", null, null, null);
+        int existeUsuario = usuarioDAO.buscarUsuario(usuarioModelo);
+        if (existeUsuario == UsuarioDAO.ERROR_SQL) {
+            notificacion.setMensaje("Error en la sentencia SQL");
+            notificacion.setTipo(AlertType.ERROR);
+            notificacion.mostrar();
+            regresarPantallaBloqueo();
+        } else if (existeUsuario == UsuarioDAO.USUARIO_INCORRECTO) {
+            notificacion.setMensaje("El nombre de usuario es incorrecto");
+            notificacion.setTipo(AlertType.WARNING);
+            notificacion.mostrar();
+            regresarPantallaBloqueo();
+        } else if (existeUsuario == UsuarioDAO.CONTRASENA_INCORRECTA) {
+            notificacion.setMensaje("La contraseña de usuario es incorrecta");
+            notificacion.setTipo(AlertType.WARNING);
+            notificacion.mostrar();
+            regresarPantallaBloqueo();
+        } else if (existeUsuario == UsuarioDAO.USUARIO_BLOQUEADO) {
+            notificacion.setMensaje("El usuario esta bloqueado consulta al administrador");
+            notificacion.setTipo(AlertType.WARNING);
+            notificacion.mostrar();
+            regresarPantallaBloqueo();
+        } else if (existeUsuario == UsuarioDAO.CREDENCIALES_VALIDAS) {
+            notificacion.setMensaje("Los datos de usuario son correctos");
+            notificacion.setTipo(AlertType.CONFIRMATION);
+            notificacion.mostrar();
+        }// Fin if/else
+        if(usuarioDAO.cerrarConexion() == UsuarioDAO.ERROR_SQL) {
+            notificacion.setMensaje("Error al cerrar la conexión");
+            notificacion.setTipo(AlertType.ERROR);
+            notificacion.mostrar();
+        }// Fin if
     }// Fin método
     
-    public void inisiarSesion() {
-        
-    }
-    
+    /**
+     * Regresa a la pantalla de bloque
+     */
     public void regresarPantallaBloqueo() {
         this.controlCyber.mostrarPantallaUno();
-    }
+    }// Fin método
 
     @Override
     public void handle(KeyEvent event) {
         String tecla = event.getCode().toString();
+        System.out.println(tecla);
         switch (tecla) {
             case "ESCAPE":
                 regresarPantallaBloqueo();
                 break;
             case "WINDOWS":
                 event.consume();
+                break;
+            case "ENTER":
+                inisiarSesion();
                 break;
         }
     }

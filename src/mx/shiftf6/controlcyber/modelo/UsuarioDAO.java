@@ -5,36 +5,36 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
+import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 
 /**
  *
- * @author BarBro
+ * @author Champe
  */
 public class UsuarioDAO implements ObjetoDAO{
-    // Atributos de Clase
-    private UsuarioModelo usuarioModelo;
-    private Connection con;
+
+    private final Connection conexion;
+    public static final int NO_MENSAJES = -1;
+    public static final int CREDENCIALES_VALIDAS = 0;
+    public static final int USUARIO_INCORRECTO = 1;
+    public static final int CONTRASENA_INCORRECTA = 2;
+    public static final int USUARIO_BLOQUEADO = 3;
+    public static final int ERROR_SQL = 4;
     
-    
-    public UsuarioDAO(){
-        // Default Constructor
-        
-        
+    public UsuarioDAO() {
+        LeerArchivo.leerArchivo();
+        ConnectionDB conexionDB = new ConnectionDB(LeerArchivo.nameDB, LeerArchivo.hostDB, LeerArchivo.userDB, LeerArchivo.passwordDB);
+        conexion = conexionDB.conectarMySQL();
     }
-    // Get and Set Methods for UsuarioDAO Class
-    // UsuarioModelo
-    public UsuarioModelo getUsuarioModelo(){
-        return this.usuarioModelo;
-    }
     
-    public void setUsuarioModelo(UsuarioModelo usuarioModelo){
-        this.usuarioModelo = usuarioModelo;
+    @Override
+    public void crear(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object[] leerUno(String campo, String valor) {   
+    public Object leerUno(String campo, String valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -44,7 +44,7 @@ public class UsuarioDAO implements ObjetoDAO{
     }
 
     @Override
-    public void agregar(Object obj) {
+    public void actualizar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -54,67 +54,48 @@ public class UsuarioDAO implements ObjetoDAO{
     }
 
     @Override
-    public void actualizar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String buscar(Object obj) {
+    public int cerrarConexion() {
+        try{
+            this.conexion.close();
+            return UsuarioDAO.NO_MENSAJES;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return UsuarioDAO.ERROR_SQL;
+        }// Fin try/catch
+    }// Fin método
+    
+    public int buscarUsuario(UsuarioModelo usuario) {
+        String buscarNombreUsuario = "SELECT * FROM usuarios WHERE nombreUsuario = ?";
+        String buscarNombreContrasenaUsuario = "SELECT * FROM usuarios WHERE nombreUsuario = ? AND contrasena = ?";
+        String buscarNombreContrasenaEstadoUsuario = "SELECT * FROM usuarios WHERE nombreUsuario = ? AND contrasena = ? AND status = 1";
+        try{
+            PreparedStatement declaracion = conexion.prepareStatement(buscarNombreUsuario);
+            declaracion.setString(1, usuario.getNombreUsuario());
+            ResultSet resultado = declaracion.executeQuery();
+            if (resultado.next()) {
+                declaracion = conexion.prepareStatement(buscarNombreContrasenaUsuario);
+                declaracion.setString(1, usuario.getNombreUsuario());
+                declaracion.setString(2, usuario.getContrasena());
+                resultado = declaracion.executeQuery();
+                if (resultado.next()) {
+                    declaracion = conexion.prepareStatement(buscarNombreContrasenaEstadoUsuario);
+                    declaracion.setString(1, usuario.getNombreUsuario());
+                    declaracion.setString(2, usuario.getContrasena());
+                    resultado = declaracion.executeQuery();
+                    if (resultado.next()) {
+                        return UsuarioDAO.CREDENCIALES_VALIDAS;
+                    }else {
+                        return UsuarioDAO.USUARIO_BLOQUEADO;
+                    }// Fin if/else
+                } else {
+                    return UsuarioDAO.CONTRASENA_INCORRECTA;
+                }// Fin if/else
+            } else {
+                return UsuarioDAO.USUARIO_INCORRECTO;
+            }// Fin if/else
+        } catch (SQLException sqle) {
+            return UsuarioDAO.ERROR_SQL;
+        }// Fin try/catch
+    }// Fin método
         
-        // Querys to find user and verify password returns specific error if needed  
-        String queryUsuario = "Select from Usuarios where nombreUsuario = ? ";
-        String queryContrasena = "Select from Usuarios where contrasena = ? ";
-        String queryStatus = "Select from Usuarios where status = ? ";
-        // Object from UsuarioModel 
-        UsuarioModelo temp = new UsuarioModelo();
-        
-        try {
-            // Getting nombreUsuario 
-            PreparedStatement prepUsuario = con.prepareStatement(queryUsuario);
-            prepUsuario.setString(1, temp.getNombreUsuario());
-            
-            ResultSet res = prepUsuario.executeQuery();
-            
-            if(res == null){
-                return "No Existe el Usuario"; 
-            }else{
-                // Getting contrasena 
-                PreparedStatement prepContrasena = con.prepareStatement(queryContrasena);
-                prepContrasena.setString(1, temp.getContrasena());
-                
-                ResultSet res2 = prepContrasena.executeQuery();
-                
-                if(res2 == null){
-                    return "Contraseña Incorrecta";
-                }else{
-                    // Getting status
-                    PreparedStatement prepStatus = con.prepareStatement(queryStatus);
-                    prepStatus.setInt(1, temp.getStatus());
-                    
-                    ResultSet res3 = prepStatus.executeQuery();
-                    
-                    if(res3 == null){
-                        return "Usuario ya Inicio Sesion";
-                    }else{
-                        // Close PreparedStatements
-                        prepUsuario.close();
-                        prepContrasena.close();
-                        prepStatus.close();
-                        // Close ResultSets
-                        res.close();
-                        res2.close();
-                        res3.close();
-                        
-                        return "Bienvenido";
-                    }
-                }
-            }
-             
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-}
+}// Fin clase

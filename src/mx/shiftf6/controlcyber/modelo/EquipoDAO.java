@@ -32,7 +32,7 @@ public class EquipoDAO implements ObjetoDAO{
     }
 
     @Override
-    public void agregar(Object obj) {
+    public void crear(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -47,9 +47,8 @@ public class EquipoDAO implements ObjetoDAO{
     }
 
     @Override
-    public String buscar(Object obj) {
+    public int cerrarConexion() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
     
 }

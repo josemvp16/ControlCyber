@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -20,14 +21,14 @@ public class UsuarioModelo {
     private ClienteModelo clienteModelo;
     
     public UsuarioModelo(){
-        this.nombreUsuario = null;
-        this.contrasena = null;
+        this(null, null);
+    }
+    public UsuarioModelo(String usuario, String contrasena) {
+        this.nombreUsuario = new SimpleStringProperty(usuario);
+        this.contrasena = new SimpleStringProperty(contrasena);
         this.fechaRegistro = null;
         this.status = null;
         this.clienteModelo = null;
-    }
-    public UsuarioModelo(StringProperty usuario, StringProperty contrasena) {
-        
     }
     // Get and Set Methods for UsuarioModelo Class
     // NombreUsuario

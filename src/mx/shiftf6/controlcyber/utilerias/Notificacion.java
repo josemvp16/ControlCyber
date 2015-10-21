@@ -15,9 +15,12 @@ public class Notificacion {
     private String cabecera;
     private String mensaje;
     private AlertType tipo;
-
-    public Notificacion(AlertType tipoAlerta) {
+    
+    public Notificacion(String titulo, String cabecera, String mensaje, AlertType tipoAlerta) {
         this.alerta = new Alert(tipoAlerta);
+        this.alerta.setTitle(titulo);
+        this.alerta.setHeaderText(cabecera);
+        this.alerta.setContentText(mensaje);
     }// Fin constructor
 
     public Alert getAlerta() {
@@ -63,5 +66,9 @@ public class Notificacion {
         this.tipo = tipo;
         this.alerta.setAlertType(tipo);
     }// Fin método
+    
+    public void mostrar() {
+        this.alerta.showAndWait();
+    }
     
 }

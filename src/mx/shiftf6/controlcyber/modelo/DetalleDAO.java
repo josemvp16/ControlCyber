@@ -22,7 +22,12 @@ public class DetalleDAO implements ObjetoDAO{
     }
 
     @Override
-    public Object[] leerUno(String campo, String valor) {
+    public void crear(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object leerUno(String campo, String valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -32,7 +37,7 @@ public class DetalleDAO implements ObjetoDAO{
     }
 
     @Override
-    public void agregar(Object obj) {
+    public void actualizar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -42,14 +47,8 @@ public class DetalleDAO implements ObjetoDAO{
     }
 
     @Override
-    public void actualizar(Object obj) {
+    public int cerrarConexion() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public String buscar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
 }

@@ -6,27 +6,26 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import mx.shiftf6.controlcyber.ControlCyber;
 
 
 public class LeerArchivo {
     
     //VARIABLES
-    private List <String> content;
-    private String nameDB;
-    private String hostDB;
-    private String userDB;
-    private String passwordDB;
+    private static List<String> content;
+    public static String nameDB;
+    public static String hostDB;
+    public static String userDB;
+    public static String passwordDB;
     
-    public LeerArchivo(){
+    public static void leerArchivo(){
         try{
             String ruta = "E:/ConnectionData.dat";
             System.out.println(ruta);
-            this.content = Files.readAllLines(Paths.get(ruta));
-            this.nameDB = content.get(2);
-            this.hostDB = content.get(4);
-            this.userDB = content.get(6);
-            this.passwordDB = content.get(8);
+            LeerArchivo.content = Files.readAllLines(Paths.get(ruta));
+            LeerArchivo.nameDB = content.get(2);
+            LeerArchivo.hostDB = content.get(4);
+            LeerArchivo.userDB = content.get(6);
+            LeerArchivo.passwordDB = content.get(8);
         }catch(IOException ioe){
             Toolkit.getDefaultToolkit().beep();
             //Notificacion notificacion = new Notificacion(AlertTipe.CONFIRMATION);
@@ -38,8 +37,11 @@ public class LeerArchivo {
         }
     }
     
-    @Override
-    public String toString() {
+    /**
+     *
+     * @return
+     */
+    public static String aCadena() {
         String datos = "Base de Datos: " + nameDB + "\n"
                 + "Host: " + hostDB + "\n"
                 + "Usuario: " + userDB + "\n"
@@ -47,21 +49,6 @@ public class LeerArchivo {
         return datos;
     }
 
-    public String getNameDB() {
-        return nameDB;
-    }
-
-    public String getHostDB() {
-        return hostDB;
-    }
-
-    public String getUserDB() {
-        return userDB;
-    }
-
-    public String getPasswordDB() {
-        return passwordDB;
-    }
     
     
 }
