@@ -1,29 +1,33 @@
 
 package mx.shiftf6.controlcyber.modelo;
 
+import java.sql.Connection;
+import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
+import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
+
 /**
  *
  * @author BarBro
  */
-public class DetalleDAO implements ObjetoDAO{
-    // Atributos de Clase
-    private DetalleModelo detalleModelo;
+public class DetalleBitacoraDAO implements ObjetoDAO{
     
-    public DetalleDAO(){
-        // Default Constructor
-    }
-    // Get and Set Methods for DetalleDAO Class
-    // BitacoraModelo
-    public DetalleModelo getDetalleModelo(){
-        return this.detalleModelo;
-    }
-    public void setDetalleModelo(DetalleModelo detalleModelo){
-        this.detalleModelo = detalleModelo;
-    }
+    private final Connection conexion;
+    public static final int NO_MENSAJES = -1;
+    public static final int CREDENCIALES_VALIDAS = 0;
+    public static final int USUARIO_INCORRECTO = 1;
+    public static final int CONTRASENA_INCORRECTA = 2;
+    public static final int USUARIO_BLOQUEADO = 3;
+    public static final int ERROR_SQL = 4;
+    
+    public DetalleBitacoraDAO(){
+        LeerArchivo.leerArchivo();
+        ConnectionDB conexionDB = new ConnectionDB(LeerArchivo.nameDB, LeerArchivo.hostDB, LeerArchivo.userDB, LeerArchivo.passwordDB);
+        conexion = conexionDB.conectarMySQL();
+    }// Fin constructor
 
     @Override
     public void crear(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String crearRegistro "INSERT INTO "
     }
 
     @Override

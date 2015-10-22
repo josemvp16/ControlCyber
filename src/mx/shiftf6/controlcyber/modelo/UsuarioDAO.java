@@ -26,7 +26,7 @@ public class UsuarioDAO implements ObjetoDAO{
         LeerArchivo.leerArchivo();
         ConnectionDB conexionDB = new ConnectionDB(LeerArchivo.nameDB, LeerArchivo.hostDB, LeerArchivo.userDB, LeerArchivo.passwordDB);
         conexion = conexionDB.conectarMySQL();
-    }
+    }// Fin constructor
     
     @Override
     public void crear(Object obj) {
@@ -56,6 +56,7 @@ public class UsuarioDAO implements ObjetoDAO{
     @Override
     public int cerrarConexion() {
         try{
+            System.out.println("Cerrar Conexion OK");
             this.conexion.close();
             return UsuarioDAO.NO_MENSAJES;
         } catch (SQLException sqle) {

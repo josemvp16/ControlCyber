@@ -3,6 +3,7 @@ package mx.shiftf6.controlcyber.modelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 
@@ -12,7 +13,7 @@ import javafx.beans.property.ObjectProperty;
  */
 public class BitacoraModelo {
     // Atributos de Clase
-    private IntegerProperty cveBitacora;
+    private DoubleProperty cveBitacora;
     private UsuarioModelo usuarioModelo;
     private ObjectProperty<LocalDate> fecha;
     private EquipoModelo equipoModelo;
@@ -23,13 +24,13 @@ public class BitacoraModelo {
     }
     // Get and Set Methods for BitacoraModelo Class
     // CveCliente
-    public int getCveBitacora(){
+    public Double getCveBitacora(){
         return cveBitacora.get();
     }
     public void setCveBitacora(int cveBitacora){
         this.cveBitacora.set(cveBitacora);
     }
-    public IntegerProperty cveBitacoraProperty(){
+    public DoubleProperty cveBitacoraProperty(){
         return cveBitacora;
     }
     // UsuarioModelo

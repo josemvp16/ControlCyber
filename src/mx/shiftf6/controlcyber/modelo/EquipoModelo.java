@@ -19,7 +19,7 @@ public class EquipoModelo {
     }
     // Get and Set Methods for EquipoModelo Class
     // CveEquipo
-    public int getsCveEquipo(){
+    public int getCveEquipo(){
         return cveEquipo.get();
     }
     public void setCveEquipo(int cveEquipo){
@@ -43,7 +43,7 @@ public class EquipoModelo {
     // ToString
     @Override
     public String toString(){
-        String text = "Clave Equipo: " + this.getsCveEquipo() + "\n" +
+        String text = "Clave Equipo: " + this.getCveEquipo() + "\n" +
                       "Nombre Equipo: " + this.getNombreEquipo() + "\n";
         
         return text;
@@ -51,7 +51,7 @@ public class EquipoModelo {
     // ToArray
     public ArrayList toArray(){
         ArrayList<Object> arreglo = new ArrayList<>();
-        arreglo.add(this.getsCveEquipo());
+        arreglo.add(this.getCveEquipo());
         arreglo.add(this.getNombreEquipo());
         
         return arreglo;

@@ -19,6 +19,19 @@
 	-fx-background-color: #666666;
 }
 
+.botonScreen3{
+	-fx-background-color: #cccccc;
+	-fx-background-radius: 5px;
+}
+
+.botonScreen3:hover {
+	-fx-background-color: #999999;
+}
+
+.botonScreen3:pressed {
+	-fx-background-color: #666666;
+}
+
 .panel1Screen2{
 	-fx-background-color: #cccccc;
 	-fx-background-radius: 20px;

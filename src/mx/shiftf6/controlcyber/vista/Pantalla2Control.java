@@ -8,7 +8,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Modality;
 import mx.shiftf6.controlcyber.ControlCyber;
 import mx.shiftf6.controlcyber.modelo.UsuarioDAO;
 import mx.shiftf6.controlcyber.modelo.UsuarioModelo;
@@ -74,9 +73,10 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
             notificacion.mostrar();
             regresarPantallaBloqueo();
         } else if (existeUsuario == UsuarioDAO.CREDENCIALES_VALIDAS) {
-            notificacion.setMensaje("Los datos de usuario son correctos");
-            notificacion.setTipo(AlertType.CONFIRMATION);
-            notificacion.mostrar();
+//            notificacion.setMensaje("Los datos de usuario son correctos");
+//            notificacion.setTipo(AlertType.CONFIRMATION);
+//            notificacion.mostrar();
+            mostrarVentanaVenta();
         }// Fin if/else
         if(usuarioDAO.cerrarConexion() == UsuarioDAO.ERROR_SQL) {
             notificacion.setMensaje("Error al cerrar la conexión");
@@ -91,7 +91,18 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
     public void regresarPantallaBloqueo() {
         this.controlCyber.mostrarPantallaUno();
     }// Fin método
-
+    
+    /**
+     * Muestra la ventana de venta
+     */
+    public void mostrarVentanaVenta() {
+        this.controlCyber.mostrarVentanaVenta();
+    }
+    
+    /**
+     * 
+     * @param event 
+     */
     @Override
     public void handle(KeyEvent event) {
         String tecla = event.getCode().toString();

@@ -1,63 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-border-radius: 20px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane style="-fx-border-radius: 20px;" styleClass="panel2Screen2" stylesheets="@estilos/ControlCyber.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.shiftf6.controlcyber.vista.VentanaControl">
    <children>
-      <Pane prefHeight="300.0" prefWidth="400.0" styleClass="ventana" stylesheets="@ControlCyber.css">
-         <children>
-            <Pane layoutX="320.0" layoutY="22.0" prefHeight="27.0" prefWidth="38.0">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="38.0" styleClass="boton1Screen2" stylesheets="@ControlCyber.css" />
-                  <ImageView fitHeight="22.0" fitWidth="38.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagenes/fondos/Untitled-1-02.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane layoutX="100.0" layoutY="104.0" prefHeight="93.0" prefWidth="200.0" styleClass="panel2Screen2" stylesheets="@ControlCyber.css">
-               <children>
-                  <Pane layoutX="39.0" layoutY="26.0">
+                  <HBox alignment="CENTER" layoutX="120.0" layoutY="131.0" spacing="10.0">
                      <children>
-                        <ImageView fitHeight="17.0" fitWidth="17.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="120.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imagenes/fondos/Untitled-1-03.png" />
+                              <Image url="@../imagenes/iconos/Untitled-1-01.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../imagenes/fondos/Untitled-1-01.png" />
-                           </image>
-                        </ImageView>
-                        <TextField alignment="CENTER" layoutX="22.0" layoutY="24.0" prefHeight="10.0" prefWidth="100.0" styleClass="texto2Screen2" stylesheets="@ControlCyber.css" text="\$2.00">
+                        <TextField fx:id="tiempo" alignment="CENTER" editable="false" layoutX="159.0" layoutY="131.0" prefHeight="39.0" prefWidth="120.0" promptText="tiempo" styleClass="texto2Screen2" stylesheets="@estilos/ControlCyber.css">
                            <font>
-                              <Font name="ZagRegular" size="10.0" />
-                           </font>
-                        </TextField>
-                        <TextField alignment="CENTER" layoutX="22.0" prefHeight="10.0" prefWidth="100.0" styleClass="texto1Screen2" stylesheets="@ControlCyber.css" text="10min">
-                           <font>
-                              <Font name="ZagRegular" size="10.0" />
+                              <Font size="18.0" />
                            </font>
                         </TextField>
                      </children>
-                  </Pane>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="123.0" layoutY="192.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="120.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/iconos/Untitled-1-03.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="costo" alignment="CENTER" editable="false" layoutX="159.0" layoutY="131.0" prefHeight="39.0" prefWidth="120.0" promptText="costo" styleClass="texto2Screen2" stylesheets="@estilos/ControlCyber.css">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Button fx:id="cobrar" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="158.0" styleClass="botonScreen3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
-            </Pane>
-            <Pane layoutX="173.0" layoutY="204.0" prefHeight="29.0" prefWidth="50.0" styleClass="panel3Screen2" stylesheets="@ControlCyber.css">
-               <children>
-                  <ImageView fitHeight="19.0" fitWidth="32.0" layoutX="12.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" style="-fx-background: #ff3333;">
-                     <image>
-                        <Image url="@../imagenes/fondos/Untitled-1-04.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

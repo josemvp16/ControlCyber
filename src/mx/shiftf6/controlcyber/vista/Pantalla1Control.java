@@ -2,11 +2,7 @@
 package mx.shiftf6.controlcyber.vista;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.stage.Modality;
-import javafx.stage.StageStyle;
 import mx.shiftf6.controlcyber.ControlCyber;
 
 /**
