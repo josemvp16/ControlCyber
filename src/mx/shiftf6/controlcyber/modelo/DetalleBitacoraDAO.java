@@ -27,7 +27,6 @@ public class DetalleBitacoraDAO implements ObjetoDAO{
 
     @Override
     public void crear(Object obj) {
-        String crearRegistro "INSERT INTO "
     }
 
     @Override
