@@ -17,7 +17,7 @@ public class BitacoraModelo {
     private UsuarioModelo usuarioModelo;
     private ObjectProperty<LocalDate> fecha;
     private EquipoModelo equipoModelo;
-    private DetalleModelo detalleModelo;
+    private DetalleBitacoraModelo detalleModelo;
         
     public BitacoraModelo(){
         // Default Constructor
@@ -57,11 +57,11 @@ public class BitacoraModelo {
     public void setEquipoModelo(EquipoModelo equipoModelo){
         this.equipoModelo = equipoModelo;
     }
-    // DetalleModelo
-    public DetalleModelo getDetalleModelo(){
+    // DetalleBitacoraModelo
+    public DetalleBitacoraModelo getDetalleModelo(){
         return this.detalleModelo;
     }
-    public void setDetalleModelo(DetalleModelo detalleModelo){
+    public void setDetalleModelo(DetalleBitacoraModelo detalleModelo){
         this.detalleModelo = detalleModelo;
     }
     

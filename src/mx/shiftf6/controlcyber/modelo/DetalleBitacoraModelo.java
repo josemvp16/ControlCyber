@@ -10,16 +10,16 @@ import javafx.beans.property.ObjectProperty;
  *
  * @author BarBro
  */
-public class DetalleModelo {
+public class DetalleBitacoraModelo {
     // Atributos de Clase
     private IntegerProperty detalleEvento;
     private ObjectProperty<LocalDate> entrada;
     private ObjectProperty<LocalDate> salida;
     
-    public DetalleModelo(){
+    public DetalleBitacoraModelo(){
         // Default Constructor
     }
-    // Get and Set Methods for DetalleModelo Class
+    // Get and Set Methods for DetalleBitacoraModelo Class
     // DetalleEvento
     public int getsDetalleEvento(){
         return detalleEvento.get();

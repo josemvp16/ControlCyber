@@ -2,8 +2,13 @@
 package mx.shiftf6.controlcyber.modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javafx.scene.control.Alert;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
+import mx.shiftf6.controlcyber.utilerias.HoraFecha;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
+import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
 /**
  *
@@ -27,6 +32,7 @@ public class DetalleBitacoraDAO implements ObjetoDAO{
 
     @Override
     public void crear(Object obj) {
+        
     }
 
     @Override
