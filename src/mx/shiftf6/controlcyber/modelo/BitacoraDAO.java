@@ -35,15 +35,13 @@ public class BitacoraDAO implements ObjetoDAO{
     @Override
     public void crear(Object obj) {
         BitacoraModelo bitacora = (BitacoraModelo) obj;
-        String crearRegistro = "INSERT INTO bitacora VALUES (?, ?, ?, ?)";
+        String crearRegistro = "INSERT INTO bitacora (nombreUsuario, fecha, cveEquipo) VALUES (?, CURDATE(), ?)";
         try {
             PreparedStatement declaracion = conexion.prepareStatement(crearRegistro);
-            declaracion.setDouble(1, bitacora.getCveBitacora());
-            declaracion.setString(2, bitacora.getUsuarioModelo().getNombreUsuario());
-            declaracion.setString(3, HoraFecha.formatFecha(bitacora.getFecha()));
-            declaracion.setInt(4, bitacora.getEquipoModelo().getCveEquipo());
+            declaracion.setString(1, bitacora.getUsuarioModelo().getNombreUsuario());
+            declaracion.setInt(2, bitacora.getEquipoModelo().getCveEquipo());
             declaracion.execute();
-            Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos", "El registro se creo correctamente");
+            Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [Bitacora]", "El registro se creo correctamente");
         } catch (SQLException sqle) {
             Notificacion.dialogoException(sqle);
         }// Fin try/catch

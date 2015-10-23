@@ -4,7 +4,7 @@ package mx.shiftf6.controlcyber.modelo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.LongProperty;
 import javafx.beans.property.ObjectProperty;
 
 /**
@@ -13,24 +13,24 @@ import javafx.beans.property.ObjectProperty;
  */
 public class BitacoraModelo {
     // Atributos de Clase
-    private DoubleProperty cveBitacora;
+    private LongProperty cveBitacora;
     private UsuarioModelo usuarioModelo;
     private ObjectProperty<LocalDate> fecha;
     private EquipoModelo equipoModelo;
-    private DetalleModelo detalleModelo;
+    private DetalleBitacoraModelo detalleModelo;
         
     public BitacoraModelo(){
         // Default Constructor
     }
     // Get and Set Methods for BitacoraModelo Class
     // CveCliente
-    public Double getCveBitacora(){
+    public Long getCveBitacora(){
         return cveBitacora.get();
     }
     public void setCveBitacora(int cveBitacora){
         this.cveBitacora.set(cveBitacora);
     }
-    public DoubleProperty cveBitacoraProperty(){
+    public LongProperty cveBitacoraProperty(){
         return cveBitacora;
     }
     // UsuarioModelo
@@ -57,11 +57,11 @@ public class BitacoraModelo {
     public void setEquipoModelo(EquipoModelo equipoModelo){
         this.equipoModelo = equipoModelo;
     }
-    // DetalleModelo
-    public DetalleModelo getDetalleModelo(){
+    // DetalleBitacoraModelo
+    public DetalleBitacoraModelo getDetalleModelo(){
         return this.detalleModelo;
     }
-    public void setDetalleModelo(DetalleModelo detalleModelo){
+    public void setDetalleModelo(DetalleBitacoraModelo detalleModelo){
         this.detalleModelo = detalleModelo;
     }
     

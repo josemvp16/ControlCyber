@@ -3,12 +3,17 @@ package mx.shiftf6.controlcyber.vista;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import mx.shiftf6.controlcyber.ControlCyber;
+import mx.shiftf6.controlcyber.modelo.BitacoraDAO;
+import mx.shiftf6.controlcyber.modelo.BitacoraModelo;
+import mx.shiftf6.controlcyber.modelo.DetalleBitacoraDAO;
+import mx.shiftf6.controlcyber.modelo.DetalleBitacoraModelo;
 import mx.shiftf6.controlcyber.modelo.UsuarioDAO;
 import mx.shiftf6.controlcyber.modelo.UsuarioModelo;
 import mx.shiftf6.controlcyber.utilerias.Notificacion;
@@ -29,6 +34,10 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
     private ControlCyber controlCyber;
     private UsuarioModelo usuarioModelo;
     private UsuarioDAO usuarioDAO;
+    private BitacoraModelo bitacoraModelo;
+    private BitacoraDAO bitacoraDAO;
+    private DetalleBitacoraModelo detalleBitacoraModelo;
+    private DetalleBitacoraDAO detalleBitacoraDAO;
     
     @FXML
     private void initialize() {
@@ -47,30 +56,21 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
     /**
      * Valida las credenciales de usuario para permitir acceso
      */
-    public void inisiarSesion() {
+    public void iniciarSesion() {
         usuarioModelo = new UsuarioModelo(this.textoUsuario.getText(), this.passwordContrasena.getText());
         usuarioDAO = new UsuarioDAO();
-        Notificacion notificacion = new Notificacion("Inicio de Sesión", null, null, null);
         int existeUsuario = usuarioDAO.buscarUsuario(usuarioModelo);
         if (existeUsuario == UsuarioDAO.ERROR_SQL) {
-            notificacion.setMensaje("Error en la sentencia SQL");
-            notificacion.setTipo(AlertType.ERROR);
-            notificacion.mostrar();
+            Notificacion.dialogoAlerta(AlertType.ERROR, "Base de Datos [BuscarUsuario]", "Error en la sentencia SQL");
             regresarPantallaBloqueo();
         } else if (existeUsuario == UsuarioDAO.USUARIO_INCORRECTO) {
-            notificacion.setMensaje("El nombre de usuario es incorrecto");
-            notificacion.setTipo(AlertType.WARNING);
-            notificacion.mostrar();
+            Notificacion.dialogoAlerta(AlertType.ERROR, "Inicio de Sesión [BuscarUsuario]", "El usuario no existe");
             regresarPantallaBloqueo();
         } else if (existeUsuario == UsuarioDAO.CONTRASENA_INCORRECTA) {
-            notificacion.setMensaje("La contraseña de usuario es incorrecta");
-            notificacion.setTipo(AlertType.WARNING);
-            notificacion.mostrar();
+            Notificacion.dialogoAlerta(AlertType.ERROR, "Inisio de Sesión [BuscarUsuario]", "La contraseña es incorrecta");
             regresarPantallaBloqueo();
         } else if (existeUsuario == UsuarioDAO.USUARIO_BLOQUEADO) {
-            notificacion.setMensaje("El usuario esta bloqueado consulta al administrador");
-            notificacion.setTipo(AlertType.WARNING);
-            notificacion.mostrar();
+            Notificacion.dialogoAlerta(AlertType.ERROR, "Inicio de Sesión [BuscarUsuario]", "El usuario esta bloqueado consulta al admnistrador");
             regresarPantallaBloqueo();
         } else if (existeUsuario == UsuarioDAO.CREDENCIALES_VALIDAS) {
 //            notificacion.setMensaje("Los datos de usuario son correctos");
@@ -79,9 +79,7 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
             mostrarVentanaVenta();
         }// Fin if/else
         if(usuarioDAO.cerrarConexion() == UsuarioDAO.ERROR_SQL) {
-            notificacion.setMensaje("Error al cerrar la conexión");
-            notificacion.setTipo(AlertType.ERROR);
-            notificacion.mostrar();
+            Notificacion.dialogoAlerta(Alert.AlertType.ERROR, "Base de Datos [BuscarUsuario]", "Error en la sentencia SQL");
         }// Fin if
     }// Fin método
     
@@ -96,6 +94,7 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
      * Muestra la ventana de venta
      */
     public void mostrarVentanaVenta() {
+        // TODO agregar metodos para crear registro en bitacora
         this.controlCyber.mostrarVentanaVenta();
     }
     
@@ -115,7 +114,7 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
                 event.consume();
                 break;
             case "ENTER":
-                inisiarSesion();
+                iniciarSesion();
                 break;
         }
     }

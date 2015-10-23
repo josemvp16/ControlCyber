@@ -2,8 +2,12 @@
 package mx.shiftf6.controlcyber.modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javafx.scene.control.Alert;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
+import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
 /**
  *
@@ -27,6 +31,17 @@ public class DetalleBitacoraDAO implements ObjetoDAO{
 
     @Override
     public void crear(Object obj) {
+        DetalleBitacoraModelo bitacoraDetalle = (DetalleBitacoraModelo) obj;
+        String crearRegistro = "INSERT INTO detalleBitacora (cveBitacora, hora, evento) VALUES (?, CURTIME(), ?)";
+        try {
+            PreparedStatement declaracion = conexion.prepareStatement(crearRegistro);
+            declaracion.setLong(1, bitacoraDetalle.getBitacoraModelo().getCveBitacora());
+            declaracion.setString(2, bitacoraDetalle.getEvento());
+            declaracion.execute();
+            Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [DetalleBitacora]", "El registro se creo correctamente");
+        } catch (SQLException sqle) {
+            Notificacion.dialogoException(sqle);
+        }// Fin try/catch
     }
 
     @Override
