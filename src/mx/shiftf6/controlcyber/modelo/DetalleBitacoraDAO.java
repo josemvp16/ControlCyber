@@ -30,7 +30,7 @@ public class DetalleBitacoraDAO implements ObjetoDAO{
     }// Fin constructor
 
     @Override
-    public void crear(Object obj) {
+    public boolean crear(Object obj) {
         DetalleBitacoraModelo bitacoraDetalle = (DetalleBitacoraModelo) obj;
         String crearRegistro = "INSERT INTO detalleBitacora (cveBitacora, hora, evento) VALUES (?, CURTIME(), ?)";
         try {
@@ -39,8 +39,10 @@ public class DetalleBitacoraDAO implements ObjetoDAO{
             declaracion.setString(2, bitacoraDetalle.getEvento());
             declaracion.execute();
             Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [DetalleBitacora]", "El registro se creo correctamente");
+            return true;
         } catch (SQLException sqle) {
             Notificacion.dialogoException(sqle);
+            return false;
         }// Fin try/catch
     }
 

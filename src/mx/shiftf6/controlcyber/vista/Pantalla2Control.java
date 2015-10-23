@@ -2,6 +2,7 @@
 package mx.shiftf6.controlcyber.vista;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -102,8 +103,9 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
         equipoModelo = new EquipoModelo(LeerArchivo.claveEquipo, "");
         bitacoraModelo = new BitacoraModelo((long)1, usuarioModelo, LocalDate.now(), equipoModelo);
         bitacoraDAO = new BitacoraDAO();
-        detalleBitacoraModelo = new DetalleBitacoraModelo();
-        if(bitacoraDAO.crear(bitacoraModelo))
+        //detalleBitacoraModelo = new DetalleBitacoraModelo(bitacoraModelo, LocalTime.now(), "INICIO");
+        //detalleBitacoraDAO = new DetalleBitacoraDAO();
+        if(bitacoraDAO.crear(bitacoraModelo) /*&& detalleBitacoraDAO.crear(detalleBitacoraDAO)*/)
             this.controlCyber.mostrarVentanaVenta();
     }// End método
     
