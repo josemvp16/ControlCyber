@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javafx.scene.control.Alert;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
-import mx.shiftf6.controlcyber.utilerias.HoraFecha;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
@@ -87,7 +86,14 @@ public class ClienteDAO implements ObjetoDAO{
 
     @Override
     public int cerrarConexion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+            System.out.println("Cerrar Conexion OK");
+            this.conexion.close();
+            return ClienteDAO.NO_MENSAJES;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return ClienteDAO.ERROR_SQL;
+        }// Fin try/catch
+    }// Fin método
 
 }

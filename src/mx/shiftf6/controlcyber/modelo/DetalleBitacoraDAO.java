@@ -68,7 +68,14 @@ public class DetalleBitacoraDAO implements ObjetoDAO{
 
     @Override
     public int cerrarConexion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+            System.out.println("Cerrar Conexion OK");
+            this.conexion.close();
+            return DetalleBitacoraDAO.NO_MENSAJES;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return DetalleBitacoraDAO.ERROR_SQL;
+        }// Fin try/catch
+    }// Fin método
 
 }

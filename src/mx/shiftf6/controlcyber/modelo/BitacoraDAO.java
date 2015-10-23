@@ -4,7 +4,6 @@ package mx.shiftf6.controlcyber.modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import javafx.scene.control.Alert;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 import mx.shiftf6.controlcyber.utilerias.Notificacion;
@@ -68,7 +67,14 @@ public class BitacoraDAO implements ObjetoDAO{
 
     @Override
     public int cerrarConexion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+            System.out.println("Cerrar Conexion OK");
+            this.conexion.close();
+            return BitacoraDAO.NO_MENSAJES;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return BitacoraDAO.ERROR_SQL;
+        }// Fin try/catch
+    }// Fin método
 
 }
