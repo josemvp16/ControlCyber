@@ -38,7 +38,7 @@ public class DetalleBitacoraDAO implements ObjetoDAO{
             declaracion.setLong(1, bitacoraDetalle.getBitacoraModelo().getCveBitacora());
             declaracion.setString(2, bitacoraDetalle.getEvento());
             declaracion.execute();
-            Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [DetalleBitacora]", "El registro se creo correctamente");
+            //Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [DetalleBitacora]", "El registro se creo correctamente");
             return true;
         } catch (SQLException sqle) {
             Notificacion.dialogoException(sqle);

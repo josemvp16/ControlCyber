@@ -3,8 +3,9 @@ package mx.shiftf6.controlcyber.modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import javafx.scene.control.Alert;
+import java.sql.Statement;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 import mx.shiftf6.controlcyber.utilerias.Notificacion;
@@ -69,6 +70,22 @@ public class BitacoraDAO implements ObjetoDAO{
     @Override
     public int cerrarConexion() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public Long obtenerUltimoRegistro() {
+        String buscarRegistro = "SELECT * FROM bitacora ORDER BY cveBitacora DESC LIMIT 1";
+        try {
+            Statement declaracion = conexion.createStatement();
+            ResultSet resultado = declaracion.executeQuery(buscarRegistro);
+            if (resultado.next())
+                return resultado.getLong("cveBitacora") + 1;
+            else
+                return null;
+            //Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [Bitacora]", "El registro se creo correctamente");
+        } catch (SQLException sqle) {
+            Notificacion.dialogoException(sqle);
+            return null;
+        }// Fin try/catch
     }
 
 }

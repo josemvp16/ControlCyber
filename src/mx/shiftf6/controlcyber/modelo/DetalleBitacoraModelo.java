@@ -4,6 +4,8 @@ package mx.shiftf6.controlcyber.modelo;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -13,11 +15,13 @@ import javafx.beans.property.StringProperty;
 public class DetalleBitacoraModelo {
     // Atributos de Clase
     private BitacoraModelo bitacoraModelo;
-    private ObjectProperty<LocalTime> hora;
-    private StringProperty evento;
+    private final ObjectProperty<LocalTime> hora;
+    private final StringProperty evento;
     
-    public DetalleBitacoraModelo(){
-        // Default Constructor
+    public DetalleBitacoraModelo(BitacoraModelo bitacoraModelo, LocalTime hora, String evento) {
+        this.bitacoraModelo = bitacoraModelo;
+        this.hora = new SimpleObjectProperty(hora);
+        this.evento = new SimpleStringProperty(evento);
     }
     // Get and Set Methods for DetalleBitacoraModelo Class
     // bitacoraModelo

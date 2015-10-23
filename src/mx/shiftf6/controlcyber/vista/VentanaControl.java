@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import mx.shiftf6.controlcyber.ControlCyber;
+import mx.shiftf6.controlcyber.modelo.DetalleBitacoraDAO;
 import mx.shiftf6.controlcyber.utilerias.ControlTiempoCosto;
 import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
@@ -53,6 +54,9 @@ public class VentanaControl {
         boolean opcion = Notificacion.dialogoPreguntar("Cerrar Sesión", "¡Estas seguro de cerrar la sesión?");
         if (opcion) {
             controlTiempoCosto.setActivarTemporizador(false);
+            DetalleBitacoraDAO detalleBitacoraDAO = new DetalleBitacoraDAO();
+            Pantalla2Control.detalleBitacoraModelo.setEvento("FIN");
+            detalleBitacoraDAO.crear(Pantalla2Control.detalleBitacoraModelo);
             controlCyber.mostrarPantallaUno();
         }//Fin fi        
     }// Fin método

@@ -40,7 +40,7 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
     private UsuarioDAO usuarioDAO;
     private BitacoraModelo bitacoraModelo;
     private BitacoraDAO bitacoraDAO;
-    private DetalleBitacoraModelo detalleBitacoraModelo;
+    public static DetalleBitacoraModelo detalleBitacoraModelo;
     private DetalleBitacoraDAO detalleBitacoraDAO;
     private EquipoModelo equipoModelo;
     
@@ -101,11 +101,11 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
     public void mostrarVentanaVenta() {
         LeerArchivo.leerArchivo();
         equipoModelo = new EquipoModelo(LeerArchivo.claveEquipo, "");
-        bitacoraModelo = new BitacoraModelo((long)1, usuarioModelo, LocalDate.now(), equipoModelo);
         bitacoraDAO = new BitacoraDAO();
-        //detalleBitacoraModelo = new DetalleBitacoraModelo(bitacoraModelo, LocalTime.now(), "INICIO");
-        //detalleBitacoraDAO = new DetalleBitacoraDAO();
-        if(bitacoraDAO.crear(bitacoraModelo) /*&& detalleBitacoraDAO.crear(detalleBitacoraDAO)*/)
+        bitacoraModelo = new BitacoraModelo(bitacoraDAO.obtenerUltimoRegistro(), usuarioModelo, LocalDate.now(), equipoModelo);
+        detalleBitacoraModelo = new DetalleBitacoraModelo(bitacoraModelo, LocalTime.now(), "INICIO");
+        detalleBitacoraDAO = new DetalleBitacoraDAO();
+        if(bitacoraDAO.crear(bitacoraModelo) && detalleBitacoraDAO.crear(detalleBitacoraModelo))
             this.controlCyber.mostrarVentanaVenta();
     }// End método
     
@@ -127,7 +127,7 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
             case "ENTER":
                 iniciarSesion();
                 break;
-        }
-    }
+        }// Fin switch
+    }// Fin método
     
-}
+}// Fin clase
