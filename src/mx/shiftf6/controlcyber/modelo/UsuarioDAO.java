@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
+import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
 /**
  *
@@ -30,8 +31,22 @@ public class UsuarioDAO implements ObjetoDAO{
     
     @Override
     public boolean crear(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        UsuarioModelo usuario = (UsuarioModelo) obj;
+        String crearRegistro = "INSERT INTO usuarios (nombreUsuario, status, contrasena, fechaRegistro, cveCliente) VALUES (?, ?, ?, CURDATE(), ?)";
+        try {
+            PreparedStatement declaracion = conexion.prepareStatement(crearRegistro);
+            declaracion.setString(1, usuario.getNombreUsuario());
+            declaracion.setInt(2, usuario.getStatus());
+            declaracion.setString(3, usuario.getContrasena());
+            declaracion.setInt(4, usuario.getClienteModelo().getCveCliente());
+            declaracion.execute();
+            return true;
+            //Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [Usuario]", "El registro se creo correctamente");
+        } catch (SQLException sqle) {
+            Notificacion.dialogoException(sqle);
+            return false;
+        }// Fin try/catch
+    }// Fin método
 
     @Override
     public Object leerUno(String campo, String valor) {

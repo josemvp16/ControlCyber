@@ -2,8 +2,12 @@
 package mx.shiftf6.controlcyber.modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javafx.scene.control.Alert;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
+import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
 /**
  *
@@ -33,6 +37,23 @@ public class EquipoDAO implements ObjetoDAO{
     //public void setEquipoModelo(EquipoModelo equipoModelo){
     //    this.equipoModelo = equipoModelo;
     //}
+    
+    @Override
+    public boolean crear(Object obj) {
+        EquipoModelo equipo = (EquipoModelo) obj;
+        String crearRegistro = "INSERT INTO equipos VALUES (?, ?, ?)";
+        try {
+            PreparedStatement declaracion = conexion.prepareStatement(crearRegistro);
+            declaracion.setString(1, equipo.getCveEquipo());
+            declaracion.setString(2, equipo.getNombreEquipo());
+            declaracion.execute();
+            Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [Equipo]", "El registro se creo correctamente");
+            return true;
+        } catch (SQLException sqle) {
+            Notificacion.dialogoException(sqle);
+            return false;
+        }// Fin try/catch
+    }// Fin método
 
     @Override
     public Object[] leerUno(String campo, String valor) {
@@ -43,11 +64,6 @@ public class EquipoDAO implements ObjetoDAO{
     public Object[] leerTodos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public boolean crear(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }// Fin método
 
     @Override
     public void eliminar(Object obj) {
@@ -61,7 +77,14 @@ public class EquipoDAO implements ObjetoDAO{
 
     @Override
     public int cerrarConexion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+            System.out.println("Cerrar Conexion OK");
+            this.conexion.close();
+            return EquipoDAO.NO_MENSAJES;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return EquipoDAO.ERROR_SQL;
+        }// Fin try/catch
+    }// Fin método
     
 }

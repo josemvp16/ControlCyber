@@ -69,6 +69,15 @@ public class BitacoraDAO implements ObjetoDAO{
 
     @Override
     public int cerrarConexion() {
+        try{
+            System.out.println("Cerrar Conexion OK");
+            this.conexion.close();
+            return BitacoraDAO.NO_MENSAJES;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return BitacoraDAO.ERROR_SQL;
+        }// Fin try/catch
+    }// Fin método
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
