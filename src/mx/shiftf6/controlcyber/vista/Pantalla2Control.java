@@ -1,6 +1,7 @@
 
 package mx.shiftf6.controlcyber.vista;
 
+import java.time.LocalDate;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -14,8 +15,10 @@ import mx.shiftf6.controlcyber.modelo.BitacoraDAO;
 import mx.shiftf6.controlcyber.modelo.BitacoraModelo;
 import mx.shiftf6.controlcyber.modelo.DetalleBitacoraDAO;
 import mx.shiftf6.controlcyber.modelo.DetalleBitacoraModelo;
+import mx.shiftf6.controlcyber.modelo.EquipoModelo;
 import mx.shiftf6.controlcyber.modelo.UsuarioDAO;
 import mx.shiftf6.controlcyber.modelo.UsuarioModelo;
+import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
 /**
@@ -38,6 +41,7 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
     private BitacoraDAO bitacoraDAO;
     private DetalleBitacoraModelo detalleBitacoraModelo;
     private DetalleBitacoraDAO detalleBitacoraDAO;
+    private EquipoModelo equipoModelo;
     
     @FXML
     private void initialize() {
@@ -94,9 +98,14 @@ public class Pantalla2Control implements EventHandler<KeyEvent> {
      * Muestra la ventana de venta
      */
     public void mostrarVentanaVenta() {
-        // TODO agregar metodos para crear registro en bitacora
-        this.controlCyber.mostrarVentanaVenta();
-    }
+        LeerArchivo.leerArchivo();
+        equipoModelo = new EquipoModelo(LeerArchivo.claveEquipo, "");
+        bitacoraModelo = new BitacoraModelo((long)1, usuarioModelo, LocalDate.now(), equipoModelo);
+        bitacoraDAO = new BitacoraDAO();
+        detalleBitacoraModelo = new DetalleBitacoraModelo();
+        if(bitacoraDAO.crear(bitacoraModelo))
+            this.controlCyber.mostrarVentanaVenta();
+    }// End método
     
     /**
      * 

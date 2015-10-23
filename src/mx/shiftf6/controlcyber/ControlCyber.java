@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import mx.shiftf6.controlcyber.vista.Pantalla1Control;
 import mx.shiftf6.controlcyber.vista.Pantalla2Control;
 import mx.shiftf6.controlcyber.vista.VentanaControl;
@@ -30,11 +31,12 @@ public class ControlCyber extends Application {
         
         escenarioPrincipal = primaryStage;
         escenarioPrincipal.setTitle("Control de Cyber | Hecho con amor por Shift-F6");
+        escenarioPrincipal.initStyle(StageStyle.TRANSPARENT);
         
         // Configuramos icono de aplicacion
         escenarioPrincipal.getIcons().add(new Image("file:recursos/imagenes/iconos/Icono.png"));
         //escenarioPrincipal.setMaximized(true);
-        escenarioPrincipal.setFullScreen(true);
+        //escenarioPrincipal.setFullScreen(true);
         //escenarioPrincipal.setFullScreenExitHint("Preciona Ctrl+X pasa salir de Fullscreen");
         //escenarioPrincipal.setFullScreenExitKeyCombination(new KeyCodeCombination(KeyCode.X, KeyCombination.CONTROL_DOWN));
         escenarioPrincipal.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
@@ -74,6 +76,7 @@ public class ControlCyber extends Application {
             AnchorPane pantallaUno = (AnchorPane) cargador.load();
             
             // Colocamos la pantalla uno al centro del layout raíz
+            escenarioPrincipal.setFullScreen(true);
             layoutRaiz.setCenter(null);
             layoutRaiz.setCenter(pantallaUno);
             
@@ -118,8 +121,8 @@ public class ControlCyber extends Application {
             // Colocamos la ventana de venta al centro del layout raíz
             escenarioPrincipal.setFullScreen(false);
             escenarioPrincipal.setResizable(false);
-            escenarioPrincipal.setWidth(325.00);
-            escenarioPrincipal.setHeight(225.00);
+            escenarioPrincipal.setWidth(350.00);
+            escenarioPrincipal.setHeight(250.00);
             Rectangle2D limitesPantalla  = Screen.getPrimary().getVisualBounds();
             escenarioPrincipal.setX(limitesPantalla.getMinX() + limitesPantalla.getWidth() - escenarioPrincipal.getWidth());
             escenarioPrincipal.setY(limitesPantalla.getMinY() + limitesPantalla.getHeight() - escenarioPrincipal.getHeight());

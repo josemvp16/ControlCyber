@@ -29,7 +29,7 @@ public class UsuarioDAO implements ObjetoDAO{
     }// Fin constructor
     
     @Override
-    public void crear(Object obj) {
+    public boolean crear(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -3,9 +3,10 @@ package mx.shiftf6.controlcyber.modelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 /**
  *
@@ -13,15 +14,18 @@ import javafx.beans.property.ObjectProperty;
  */
 public class BitacoraModelo {
     // Atributos de Clase
-    private LongProperty cveBitacora;
+    private final LongProperty cveBitacora;
     private UsuarioModelo usuarioModelo;
-    private ObjectProperty<LocalDate> fecha;
+    private final ObjectProperty<LocalDate> fecha;
     private EquipoModelo equipoModelo;
-    private DetalleBitacoraModelo detalleModelo;
         
-    public BitacoraModelo(){
-        // Default Constructor
-    }
+    public BitacoraModelo(Long cveBitacora, UsuarioModelo usuarioModelo, LocalDate fecha, EquipoModelo equipoModelo){
+        this.cveBitacora = new SimpleLongProperty(cveBitacora);
+        this.usuarioModelo = usuarioModelo;
+        this.fecha = new SimpleObjectProperty(fecha);
+        this.equipoModelo = equipoModelo;
+    }// Fin constructor
+    
     // Get and Set Methods for BitacoraModelo Class
     // CveCliente
     public Long getCveBitacora(){
@@ -57,13 +61,6 @@ public class BitacoraModelo {
     public void setEquipoModelo(EquipoModelo equipoModelo){
         this.equipoModelo = equipoModelo;
     }
-    // DetalleBitacoraModelo
-    public DetalleBitacoraModelo getDetalleModelo(){
-        return this.detalleModelo;
-    }
-    public void setDetalleModelo(DetalleBitacoraModelo detalleModelo){
-        this.detalleModelo = detalleModelo;
-    }
     
     // Other methods
     // ToString
@@ -72,8 +69,7 @@ public class BitacoraModelo {
         String text = "Clave Bitacora: " + this.getCveBitacora() + "\n" +
                       "Usuario: " + this.getUsuarioModelo() + "\n" +
                       "Fecha: " + this.getFecha() + "\n" +
-                      "Equipo: " + this.getEquipoModelo() + "\n" +
-                      "Detalle: " + this.getDetalleModelo() + "\n";
+                      "Equipo: " + this.getEquipoModelo();
         
         return text;
     }
@@ -84,7 +80,6 @@ public class BitacoraModelo {
         arreglo.add(this.getUsuarioModelo());
         arreglo.add(this.getFecha());
         arreglo.add(this.getEquipoModelo());
-        arreglo.add(this.getDetalleModelo());
         
         return arreglo;
     }

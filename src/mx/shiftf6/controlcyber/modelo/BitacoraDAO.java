@@ -4,11 +4,8 @@ package mx.shiftf6.controlcyber.modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 import mx.shiftf6.controlcyber.utilerias.ConnectionDB;
-import mx.shiftf6.controlcyber.utilerias.HoraFecha;
 import mx.shiftf6.controlcyber.utilerias.LeerArchivo;
 import mx.shiftf6.controlcyber.utilerias.Notificacion;
 
@@ -33,17 +30,19 @@ public class BitacoraDAO implements ObjetoDAO{
     }// Fin constructor
 
     @Override
-    public void crear(Object obj) {
+    public boolean crear(Object obj) {
         BitacoraModelo bitacora = (BitacoraModelo) obj;
         String crearRegistro = "INSERT INTO bitacora (nombreUsuario, fecha, cveEquipo) VALUES (?, CURDATE(), ?)";
         try {
             PreparedStatement declaracion = conexion.prepareStatement(crearRegistro);
             declaracion.setString(1, bitacora.getUsuarioModelo().getNombreUsuario());
-            declaracion.setInt(2, bitacora.getEquipoModelo().getCveEquipo());
+            declaracion.setString(2, bitacora.getEquipoModelo().getCveEquipo());
             declaracion.execute();
-            Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [Bitacora]", "El registro se creo correctamente");
+            return true;
+            //Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos [Bitacora]", "El registro se creo correctamente");
         } catch (SQLException sqle) {
             Notificacion.dialogoException(sqle);
+            return false;
         }// Fin try/catch
     }// Fin método
 

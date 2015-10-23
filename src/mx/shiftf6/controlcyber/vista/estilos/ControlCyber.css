@@ -20,7 +20,7 @@
 }
 
 .botonScreen3{
-	-fx-background-color: #cccccc;
+	-fx-background-color: #ff3333;
 	-fx-background-radius: 5px;
 }
 
@@ -34,7 +34,7 @@
 
 .panel1Screen2{
 	-fx-background-color: #cccccc;
-	-fx-background-radius: 20px;
+	/*-fx-background-radius: 20px;*/
 }
 
 .texto1{

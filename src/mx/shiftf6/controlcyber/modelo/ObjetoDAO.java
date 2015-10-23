@@ -1,8 +1,6 @@
 
 package mx.shiftf6.controlcyber.modelo;
 
-import java.sql.Connection;
-
 /**
  *
  * @author Champe
@@ -12,8 +10,9 @@ public interface ObjetoDAO {
     /**
      * Crea un nuevo registro en la base de datos
      * @param obj 
+     * @return  
      */
-    public void crear(Object obj);
+    public boolean crear(Object obj);
     
     /**
      * Lee un registro en la base de datos de acuerdo a los parametros de entrada

@@ -16,9 +16,10 @@ public class LeerArchivo {
     public static String hostDB;
     public static String userDB;
     public static String passwordDB;
+    public static String claveEquipo;
     
     public static void leerArchivo(){
-        try{
+        try {
             String ruta = "E:/ConnectionData.dat";
             System.out.println(ruta);
             LeerArchivo.content = Files.readAllLines(Paths.get(ruta));
@@ -26,15 +27,10 @@ public class LeerArchivo {
             LeerArchivo.hostDB = content.get(4);
             LeerArchivo.userDB = content.get(6);
             LeerArchivo.passwordDB = content.get(8);
-        }catch(IOException ioe){
-            Toolkit.getDefaultToolkit().beep();
-            //Notificacion notificacion = new Notificacion(AlertTipe.CONFIRMATION);
-            //notificacion.setTitulo("Titulo");
-           // notificacion.setCabecera("Cabecera");
-           // notificacion.setMensaje("Mensaje");
-            //notificacion.getAlerta().showandwait();
-            
-        }
+            LeerArchivo.claveEquipo = content.get(10);
+        } catch (IOException | IndexOutOfBoundsException ioe){
+            Notificacion.dialogoException(ioe);
+        }// Fin try/catch
     }
     
     /**

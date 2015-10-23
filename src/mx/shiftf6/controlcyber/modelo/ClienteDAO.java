@@ -40,7 +40,7 @@ public class ClienteDAO implements ObjetoDAO{
     //}
 
     @Override
-    public void crear(Object obj) {
+    public boolean crear(Object obj) {
         ClienteModelo cliente = (ClienteModelo) obj;
         String crearRegistro = "INSERT INTO clientes VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -58,8 +58,10 @@ public class ClienteDAO implements ObjetoDAO{
             declaracion.setString(11, cliente.getCorreoElectronico());
             declaracion.execute();
             Notificacion.dialogoAlerta(Alert.AlertType.CONFIRMATION, "Base de Datos", "El registro se creo correctamente");
+            return true;
         } catch (SQLException sqle) {
             Notificacion.dialogoException(sqle);
+            return false;
         }// Fin try/catch
     }// Fin método
 

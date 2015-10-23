@@ -7,6 +7,6 @@
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane id="BorderPane" stylesheets="@estilos/ControlCyber.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="BorderPane" style="-fx-background-radius: 20px;" stylesheets="@estilos/ControlCyber.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     
 </BorderPane>

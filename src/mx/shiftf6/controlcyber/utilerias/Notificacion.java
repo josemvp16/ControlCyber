@@ -3,12 +3,15 @@ package mx.shiftf6.controlcyber.utilerias;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -118,6 +121,17 @@ public class Notificacion {
         alert.setContentText(mensaje);
 
         alert.showAndWait();
+    }// Fin método
+    
+    public static boolean dialogoPreguntar(String titulo, String mensaje){
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.initStyle(StageStyle.TRANSPARENT);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.get() == ButtonType.OK;
     }// Fin método
     
 }// Fin clase

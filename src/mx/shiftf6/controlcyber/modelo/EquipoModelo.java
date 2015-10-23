@@ -3,6 +3,7 @@ package mx.shiftf6.controlcyber.modelo;
 
 import java.util.ArrayList;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -11,21 +12,22 @@ import javafx.beans.property.StringProperty;
  */
 public class EquipoModelo {
     // Atributos de Clase
-    private IntegerProperty cveEquipo;
-    private StringProperty nombreEquipo;
+    private final StringProperty cveEquipo;
+    private final StringProperty nombreEquipo;
     
-    public EquipoModelo(){
-        // Default Constructor
+    public EquipoModelo(String cveEquipo, String nombreEquipo){
+        this.cveEquipo = new SimpleStringProperty(cveEquipo);
+        this.nombreEquipo = new SimpleStringProperty(nombreEquipo);        
     }
     // Get and Set Methods for EquipoModelo Class
     // CveEquipo
-    public int getCveEquipo(){
+    public String getCveEquipo(){
         return cveEquipo.get();
     }
-    public void setCveEquipo(int cveEquipo){
+    public void setCveEquipo(String cveEquipo){
         this.cveEquipo.set(cveEquipo);
     }
-    public IntegerProperty cveEquipoProperty(){
+    public StringProperty cveEquipoProperty(){
         return cveEquipo;
     }
     // NombreEquipo
