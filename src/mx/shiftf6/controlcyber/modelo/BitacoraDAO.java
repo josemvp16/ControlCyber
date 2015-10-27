@@ -78,8 +78,6 @@ public class BitacoraDAO implements ObjetoDAO{
             return BitacoraDAO.ERROR_SQL;
         }// Fin try/catch
     }// Fin método
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public Long obtenerUltimoRegistro() {
         String buscarRegistro = "SELECT * FROM bitacora ORDER BY cveBitacora DESC LIMIT 1";
